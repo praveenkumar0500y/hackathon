@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RouteRisk — Delay-Risk-Aware Fleet Dispatch</title>
+  <meta name="description" content="Delay-risk-aware fleet dispatch across Bengaluru commercial hubs and tech corridors.">
+
+  <!-- Offline-First Local Vendor Stylesheets -->
+  <link rel="stylesheet" href="/static/vendor/tailwind.min.css" />
+  <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+
+  <style>
+    :root {
+      --radius: 0.5rem;
+      --background: #fbf9f5;
+      --foreground: #1c222b;
+      --card: #ffffff;
+      --card-foreground: #1c222b;
+      --popover: #ffffff;
+      --popover-foreground: #1c222b;
+      --primary: #b45309;
+      --primary-foreground: #ffffff;
+      --secondary: #f3efe6;
+      --secondary-foreground: #1c222b;
+      --muted: #f3efe6;
+      --muted-foreground: #5a6474;
+      --accent: #0f766e;
+      --accent-foreground: #ffffff;
+      --destructive: #b91c1c;
+      --destructive-foreground: #ffffff;
+      --success: #15803d;
+      --warning: #b45309;
+      --border: #e6e0d4;
+      --input: #e6e0d4;
+      --ring: #b45309;
+      
+      --chart-1: #b45309;
+      --chart-2: #0f766e;
+      --chart-3: #be185d;
+      --chart-4: #15803d;
+      --chart-5: #2563eb;
+      --chart-6: #ea580c;
+      --chart-7: #65a30d;
+      --chart-8: #7e22ce;
+      
+      --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+    }
+
+    .num {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .label {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      font-weight: 600;
+    }
+
+    /* Leaflet Clean Light Popup Customization */
+    .leaflet-popup-content-wrapper {
+      background: #ffffff !important;
+      color: #1c222b !important;
+      border: 1px solid #e6e0d4;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .leaflet-popup-tip {
+      background: #ffffff !important;
+    }
+    .leaflet-container {
+      background: #f7f4ed !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    /* Custom pulsating aura for high-risk stops */
+    @keyframes pulse-risk {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.6); opacity: 0.2; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+    .risk-halo {
+      animation: pulse-risk 2s infinite ease-in-out;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.35);
+      border-radius: 4px;
+    }
+  </style>
+
+  <!-- Offline-First Local Vendor Scripts -->
+  <script src="/static/vendor/react.production.min.js"></script>
+  <script src="/static/vendor/react-dom.production.min.js"></script>
+  <script src="/static/vendor/leaflet.js"></script>
+  <!-- Precompiled Application Script (Offline, Zero In-Browser Babel) -->
+  <script defer src="/static/app.js"></script>
+</head>
+<body class="min-h-screen antialiased text-[#1c222b] bg-[#fbf9f5]">
+  <div id="root">
+    <!-- Instant offline loading placeholder before hydration -->
+    <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background-color:#fbf9f5;color:#5a6474;font-family:sans-serif;font-size:14px;">
+      Loading RouteRisk...
+    </div>
+  </div>
+</body>
+</html>

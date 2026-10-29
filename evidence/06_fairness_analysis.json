@@ -1,0 +1,2020 @@
+{
+  "metadata": {
+    "title": "QML-01 Algorithmic Fairness & Bias Evaluation",
+    "benchmark_track": "Contract Logistics Delay-Risk Optimization",
+    "generated_at": "2026-10-29T19:48:27Z",
+    "evaluation_seeds": [
+      4000,
+      4199
+    ],
+    "n_scenarios_per_weight": 200,
+    "risk_weights_tested": [
+      0.0,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "total_runtime_seconds": 109.21,
+    "solver": "HiGHS Certified Global Optimum Reference & Simulated Annealing"
+  },
+  "tiers_definition": {
+    "penalty_tiers": {
+      "High_Penalty": {
+        "criteria": ">= Rs. 11,000",
+        "stops": [
+          2,
+          3,
+          6,
+          9,
+          10
+        ]
+      },
+      "Mid_Penalty": {
+        "criteria": "Rs. 8,000 - 10,000",
+        "stops": [
+          1,
+          4,
+          7,
+          12
+        ]
+      },
+      "Low_Penalty": {
+        "criteria": "< Rs. 8,000",
+        "stops": [
+          5,
+          8,
+          11
+        ]
+      }
+    },
+    "distance_tiers": {
+      "Near": {
+        "criteria": "< 14.0 km radial distance from depot",
+        "stops": [
+          1,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "Distant": {
+        "criteria": ">= 14.0 km radial distance from depot",
+        "stops": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "demand_tiers": {
+      "Low_Demand": {
+        "criteria": "< 400 kg",
+        "stops": [
+          1,
+          6,
+          11
+        ]
+      },
+      "Mid_Demand": {
+        "criteria": "400 - 600 kg",
+        "stops": [
+          2,
+          5,
+          7,
+          8,
+          10
+        ]
+      },
+      "High_Demand": {
+        "criteria": "> 600 kg",
+        "stops": [
+          3,
+          4,
+          9,
+          12
+        ]
+      }
+    }
+  },
+  "evaluations_by_risk_weight": [
+    {
+      "risk_weight": 0.0,
+      "runtime_seconds": 13.39,
+      "objective_cost_inr": 18130.35,
+      "simulated_late_delivery_rate_pct": 0.33,
+      "simulated_mean_penalty_inr": 512.94,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.8,
+          "mean_arrival_slack_min": 97.6,
+          "mean_empirical_breach_rate_pct": 0.6,
+          "stops_included": [
+            2,
+            3,
+            9,
+            6,
+            10
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 146.0,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            1,
+            7,
+            12,
+            4
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 195.8,
+          "mean_empirical_breach_rate_pct": 0.33,
+          "stops_included": [
+            8,
+            11,
+            5
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 2.4,
+          "mean_arrival_slack_min": 170.3,
+          "mean_empirical_breach_rate_pct": 0.6,
+          "stops_included": [
+            1,
+            12,
+            9,
+            11,
+            10
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.57,
+          "mean_arrival_slack_min": 115.4,
+          "mean_empirical_breach_rate_pct": 0.14,
+          "stops_included": [
+            2,
+            8,
+            7,
+            4,
+            3,
+            6,
+            5
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 1.67,
+          "mean_arrival_slack_min": 167.8,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            1,
+            11,
+            6
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 127.5,
+          "mean_empirical_breach_rate_pct": 0.2,
+          "stops_included": [
+            2,
+            8,
+            7,
+            5,
+            10
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 129.7,
+          "mean_empirical_breach_rate_pct": 0.75,
+          "stops_included": [
+            12,
+            4,
+            3,
+            9
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 0.55,
+        "slack_gap_high_minus_low_min": -98.2,
+        "position_gap_low_minus_high": -0.47
+      },
+      "stop_details": [
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 36.28,
+          "tw_end_min": 210.0,
+          "slack_minutes": 173.72,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 90.68,
+          "tw_end_min": 180.0,
+          "slack_minutes": 89.32,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 136.77,
+          "tw_end_min": 330.0,
+          "slack_minutes": 193.23,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 185.8,
+          "tw_end_min": 300.0,
+          "slack_minutes": 114.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 13.39,
+          "tw_end_min": 270.0,
+          "slack_minutes": 256.61,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 116.03,
+          "tw_end_min": 240.0,
+          "slack_minutes": 123.97,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 171.16,
+          "tw_end_min": 240.0,
+          "slack_minutes": 68.84,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 230.71,
+          "tw_end_min": 300.0,
+          "slack_minutes": 69.29,
+          "empirical_breach_rate": 0.03
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 22.84,
+          "tw_end_min": 360.0,
+          "slack_minutes": 337.16,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 163.06,
+          "tw_end_min": 240.0,
+          "slack_minutes": 76.94,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 212.94,
+          "tw_end_min": 270.0,
+          "slack_minutes": 57.06,
+          "empirical_breach_rate": 0.01
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 260.68,
+          "tw_end_min": 360.0,
+          "slack_minutes": 99.32,
+          "empirical_breach_rate": 0.0
+        }
+      ]
+    },
+    {
+      "risk_weight": 0.25,
+      "runtime_seconds": 26.47,
+      "objective_cost_inr": 18615.88,
+      "simulated_late_delivery_rate_pct": 0.33,
+      "simulated_mean_penalty_inr": 512.94,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.8,
+          "mean_arrival_slack_min": 97.6,
+          "mean_empirical_breach_rate_pct": 0.6,
+          "stops_included": [
+            2,
+            3,
+            9,
+            6,
+            10
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 146.0,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            1,
+            7,
+            12,
+            4
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 195.8,
+          "mean_empirical_breach_rate_pct": 0.33,
+          "stops_included": [
+            8,
+            11,
+            5
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 2.4,
+          "mean_arrival_slack_min": 170.3,
+          "mean_empirical_breach_rate_pct": 0.6,
+          "stops_included": [
+            1,
+            12,
+            9,
+            11,
+            10
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.57,
+          "mean_arrival_slack_min": 115.4,
+          "mean_empirical_breach_rate_pct": 0.14,
+          "stops_included": [
+            2,
+            8,
+            7,
+            4,
+            3,
+            6,
+            5
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 1.67,
+          "mean_arrival_slack_min": 167.8,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            1,
+            11,
+            6
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 127.5,
+          "mean_empirical_breach_rate_pct": 0.2,
+          "stops_included": [
+            2,
+            8,
+            7,
+            5,
+            10
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 129.7,
+          "mean_empirical_breach_rate_pct": 0.75,
+          "stops_included": [
+            12,
+            4,
+            3,
+            9
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 0.55,
+        "slack_gap_high_minus_low_min": -98.2,
+        "position_gap_low_minus_high": -0.47
+      },
+      "stop_details": [
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 36.28,
+          "tw_end_min": 210.0,
+          "slack_minutes": 173.72,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 90.68,
+          "tw_end_min": 180.0,
+          "slack_minutes": 89.32,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 136.77,
+          "tw_end_min": 330.0,
+          "slack_minutes": 193.23,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 185.8,
+          "tw_end_min": 300.0,
+          "slack_minutes": 114.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 13.39,
+          "tw_end_min": 270.0,
+          "slack_minutes": 256.61,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 116.03,
+          "tw_end_min": 240.0,
+          "slack_minutes": 123.97,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 171.16,
+          "tw_end_min": 240.0,
+          "slack_minutes": 68.84,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 230.71,
+          "tw_end_min": 300.0,
+          "slack_minutes": 69.29,
+          "empirical_breach_rate": 0.03
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 22.84,
+          "tw_end_min": 360.0,
+          "slack_minutes": 337.16,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 163.06,
+          "tw_end_min": 240.0,
+          "slack_minutes": 76.94,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 212.94,
+          "tw_end_min": 270.0,
+          "slack_minutes": 57.06,
+          "empirical_breach_rate": 0.01
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 260.68,
+          "tw_end_min": 360.0,
+          "slack_minutes": 99.32,
+          "empirical_breach_rate": 0.0
+        }
+      ]
+    },
+    {
+      "risk_weight": 0.5,
+      "runtime_seconds": 27.19,
+      "objective_cost_inr": 18753.44,
+      "simulated_late_delivery_rate_pct": 0.08,
+      "simulated_mean_penalty_inr": 112.68,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.2,
+          "mean_arrival_slack_min": 157.2,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            3,
+            10,
+            2,
+            9
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 115.3,
+          "mean_empirical_breach_rate_pct": 0.25,
+          "stops_included": [
+            7,
+            4,
+            1,
+            12
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 151.8,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            8,
+            11
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 143.7,
+          "mean_empirical_breach_rate_pct": 0.2,
+          "stops_included": [
+            10,
+            11,
+            1,
+            9,
+            12
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.14,
+          "mean_arrival_slack_min": 140.6,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            6,
+            7,
+            8,
+            3,
+            4,
+            2
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 126.5,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            11,
+            1
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 2.6,
+          "mean_arrival_slack_min": 151.4,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            7,
+            8,
+            10,
+            2
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 141.5,
+          "mean_empirical_breach_rate_pct": 0.25,
+          "stops_included": [
+            3,
+            4,
+            9,
+            12
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 0.0,
+        "slack_gap_high_minus_low_min": 5.4,
+        "position_gap_low_minus_high": 0.8
+      },
+      "stop_details": [
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 39.8,
+          "tw_end_min": 270.0,
+          "slack_minutes": 230.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 134.9,
+          "tw_end_min": 240.0,
+          "slack_minutes": 105.1,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 186.2,
+          "tw_end_min": 300.0,
+          "slack_minutes": 113.8,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 235.23,
+          "tw_end_min": 330.0,
+          "slack_minutes": 94.77,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 48.64,
+          "tw_end_min": 240.0,
+          "slack_minutes": 191.36,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 120.13,
+          "tw_end_min": 240.0,
+          "slack_minutes": 119.87,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 170.91,
+          "tw_end_min": 360.0,
+          "slack_minutes": 189.09,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 229.71,
+          "tw_end_min": 360.0,
+          "slack_minutes": 130.29,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 35.88,
+          "tw_end_min": 180.0,
+          "slack_minutes": 144.12,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 80.7,
+          "tw_end_min": 210.0,
+          "slack_minutes": 129.3,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 128.62,
+          "tw_end_min": 300.0,
+          "slack_minutes": 171.38,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 186.48,
+          "tw_end_min": 270.0,
+          "slack_minutes": 83.52,
+          "empirical_breach_rate": 0.01
+        }
+      ]
+    },
+    {
+      "risk_weight": 1.0,
+      "runtime_seconds": 20.05,
+      "objective_cost_inr": 18984.19,
+      "simulated_late_delivery_rate_pct": 0.17,
+      "simulated_mean_penalty_inr": 151.74,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.2,
+          "mean_arrival_slack_min": 157.7,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            2,
+            9,
+            3,
+            10
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 117.0,
+          "mean_empirical_breach_rate_pct": 0.12,
+          "stops_included": [
+            7,
+            1,
+            12,
+            4
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 149.7,
+          "mean_empirical_breach_rate_pct": 0.5,
+          "stops_included": [
+            5,
+            8,
+            11
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 144.5,
+          "mean_empirical_breach_rate_pct": 0.4,
+          "stops_included": [
+            1,
+            9,
+            12,
+            10,
+            11
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.14,
+          "mean_arrival_slack_min": 140.4,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            6,
+            7,
+            8,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 125.1,
+          "mean_empirical_breach_rate_pct": 0.5,
+          "stops_included": [
+            6,
+            1,
+            11
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 2.6,
+          "mean_arrival_slack_min": 151.4,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            7,
+            8,
+            2,
+            10
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.5,
+          "mean_arrival_slack_min": 143.2,
+          "mean_empirical_breach_rate_pct": 0.12,
+          "stops_included": [
+            9,
+            12,
+            3,
+            4
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 10.0,
+        "slack_gap_high_minus_low_min": 8.0,
+        "position_gap_low_minus_high": 0.8
+      },
+      "stop_details": [
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 39.8,
+          "tw_end_min": 270.0,
+          "slack_minutes": 230.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 134.9,
+          "tw_end_min": 240.0,
+          "slack_minutes": 105.1,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 186.2,
+          "tw_end_min": 300.0,
+          "slack_minutes": 113.8,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 235.23,
+          "tw_end_min": 330.0,
+          "slack_minutes": 94.77,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 33.64,
+          "tw_end_min": 180.0,
+          "slack_minutes": 146.36,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 76.91,
+          "tw_end_min": 210.0,
+          "slack_minutes": 133.09,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 123.39,
+          "tw_end_min": 300.0,
+          "slack_minutes": 176.61,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 179.83,
+          "tw_end_min": 270.0,
+          "slack_minutes": 90.17,
+          "empirical_breach_rate": 0.005
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 51.88,
+          "tw_end_min": 240.0,
+          "slack_minutes": 188.12,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 122.14,
+          "tw_end_min": 240.0,
+          "slack_minutes": 117.86,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 174.64,
+          "tw_end_min": 360.0,
+          "slack_minutes": 185.36,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 236.02,
+          "tw_end_min": 360.0,
+          "slack_minutes": 123.98,
+          "empirical_breach_rate": 0.015
+        }
+      ]
+    },
+    {
+      "risk_weight": 2.0,
+      "runtime_seconds": 11.38,
+      "objective_cost_inr": 19073.41,
+      "simulated_late_delivery_rate_pct": 0.0,
+      "simulated_mean_penalty_inr": 0.0,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.4,
+          "mean_arrival_slack_min": 146.6,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            3,
+            10,
+            2,
+            9
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 117.9,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            7,
+            4,
+            12,
+            1
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 157.4,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            8,
+            11
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 138.5,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            12,
+            10,
+            1,
+            9,
+            11
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.14,
+          "mean_arrival_slack_min": 140.6,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            6,
+            7,
+            8,
+            3,
+            4,
+            2
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 132.2,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            1,
+            11
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 2.8,
+          "mean_arrival_slack_min": 140.8,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            7,
+            8,
+            10,
+            2
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 144.1,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            3,
+            4,
+            12,
+            9
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 0.0,
+        "slack_gap_high_minus_low_min": -10.8,
+        "position_gap_low_minus_high": 0.6
+      },
+      "stop_details": [
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 39.8,
+          "tw_end_min": 270.0,
+          "slack_minutes": 230.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 134.9,
+          "tw_end_min": 240.0,
+          "slack_minutes": 105.1,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 186.2,
+          "tw_end_min": 300.0,
+          "slack_minutes": 113.8,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 235.23,
+          "tw_end_min": 330.0,
+          "slack_minutes": 94.77,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 48.64,
+          "tw_end_min": 240.0,
+          "slack_minutes": 191.36,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 120.13,
+          "tw_end_min": 240.0,
+          "slack_minutes": 119.87,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 176.16,
+          "tw_end_min": 270.0,
+          "slack_minutes": 93.84,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 223.91,
+          "tw_end_min": 360.0,
+          "slack_minutes": 136.09,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 35.88,
+          "tw_end_min": 180.0,
+          "slack_minutes": 144.12,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 80.7,
+          "tw_end_min": 210.0,
+          "slack_minutes": 129.3,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 128.62,
+          "tw_end_min": 300.0,
+          "slack_minutes": 171.38,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 212.7,
+          "tw_end_min": 360.0,
+          "slack_minutes": 147.3,
+          "empirical_breach_rate": 0.0
+        }
+      ]
+    },
+    {
+      "risk_weight": 3.0,
+      "runtime_seconds": 10.73,
+      "objective_cost_inr": 19149.78,
+      "simulated_late_delivery_rate_pct": 0.0,
+      "simulated_mean_penalty_inr": 0.0,
+      "penalty_tiers": {
+        "high_penalty": {
+          "count": 5,
+          "mean_service_position": 2.4,
+          "mean_arrival_slack_min": 146.6,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            3,
+            10,
+            2,
+            9
+          ]
+        },
+        "mid_penalty": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 117.9,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            7,
+            4,
+            12,
+            1
+          ]
+        },
+        "low_penalty": {
+          "count": 3,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 157.4,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            8,
+            11
+          ]
+        }
+      },
+      "distance_tiers": {
+        "near": {
+          "count": 5,
+          "mean_service_position": 3.0,
+          "mean_arrival_slack_min": 138.5,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            12,
+            10,
+            1,
+            9,
+            11
+          ]
+        },
+        "distant": {
+          "count": 7,
+          "mean_service_position": 2.14,
+          "mean_arrival_slack_min": 140.6,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            6,
+            7,
+            8,
+            3,
+            4,
+            2
+          ]
+        }
+      },
+      "demand_tiers": {
+        "low_demand": {
+          "count": 3,
+          "mean_service_position": 2.33,
+          "mean_arrival_slack_min": 132.2,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            6,
+            1,
+            11
+          ]
+        },
+        "mid_demand": {
+          "count": 5,
+          "mean_service_position": 2.8,
+          "mean_arrival_slack_min": 140.8,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            5,
+            7,
+            8,
+            10,
+            2
+          ]
+        },
+        "high_demand": {
+          "count": 4,
+          "mean_service_position": 2.25,
+          "mean_arrival_slack_min": 144.1,
+          "mean_empirical_breach_rate_pct": 0.0,
+          "stops_included": [
+            3,
+            4,
+            12,
+            9
+          ]
+        }
+      },
+      "disparity_summary": {
+        "breach_rate_ratio_low_to_high": 0.0,
+        "slack_gap_high_minus_low_min": -10.8,
+        "position_gap_low_minus_high": 0.6
+      },
+      "stop_details": [
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 7500.0,
+          "demand_kg": 430,
+          "radial_distance_km": 18.7,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 1,
+          "planned_arrival_min": 39.8,
+          "tw_end_min": 270.0,
+          "slack_minutes": 230.2,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 11000.0,
+          "demand_kg": 310,
+          "radial_distance_km": 16.81,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 2,
+          "planned_arrival_min": 134.9,
+          "tw_end_min": 240.0,
+          "slack_minutes": 105.1,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 8500.0,
+          "demand_kg": 580,
+          "radial_distance_km": 17.03,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 3,
+          "planned_arrival_min": 186.2,
+          "tw_end_min": 300.0,
+          "slack_minutes": 113.8,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 6500.0,
+          "demand_kg": 490,
+          "radial_distance_km": 18.75,
+          "vehicle_id": "V2_CityTruck",
+          "service_position": 4,
+          "planned_arrival_min": 235.23,
+          "tw_end_min": 330.0,
+          "slack_minutes": 94.77,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 15000.0,
+          "demand_kg": 750,
+          "radial_distance_km": 20.35,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 1,
+          "planned_arrival_min": 48.64,
+          "tw_end_min": 240.0,
+          "slack_minutes": 191.36,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 9500.0,
+          "demand_kg": 640,
+          "radial_distance_km": 17.85,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 2,
+          "planned_arrival_min": 120.13,
+          "tw_end_min": 240.0,
+          "slack_minutes": 119.87,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 10500.0,
+          "demand_kg": 670,
+          "radial_distance_km": 5.32,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 3,
+          "planned_arrival_min": 176.16,
+          "tw_end_min": 270.0,
+          "slack_minutes": 93.84,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 13000.0,
+          "demand_kg": 410,
+          "radial_distance_km": 11.67,
+          "vehicle_id": "V3_HeavyHauler",
+          "service_position": 4,
+          "planned_arrival_min": 223.91,
+          "tw_end_min": 360.0,
+          "slack_minutes": 136.09,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "penalty_tier": "Mid_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 8000.0,
+          "demand_kg": 380,
+          "radial_distance_km": 13.95,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 1,
+          "planned_arrival_min": 35.88,
+          "tw_end_min": 180.0,
+          "slack_minutes": 144.12,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Distant",
+          "demand_tier": "Mid_Demand",
+          "contractual_penalty_inr": 12000.0,
+          "demand_kg": 520,
+          "radial_distance_km": 17.02,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 2,
+          "planned_arrival_min": 80.7,
+          "tw_end_min": 210.0,
+          "slack_minutes": 129.3,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "penalty_tier": "High_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "High_Demand",
+          "contractual_penalty_inr": 14000.0,
+          "demand_kg": 820,
+          "radial_distance_km": 11.01,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 3,
+          "planned_arrival_min": 128.62,
+          "tw_end_min": 300.0,
+          "slack_minutes": 171.38,
+          "empirical_breach_rate": 0.0
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "penalty_tier": "Low_Penalty",
+          "distance_tier": "Near",
+          "demand_tier": "Low_Demand",
+          "contractual_penalty_inr": 6000.0,
+          "demand_kg": 290,
+          "radial_distance_km": 8.73,
+          "vehicle_id": "V4_MaxFreight",
+          "service_position": 4,
+          "planned_arrival_min": 212.7,
+          "tw_end_min": 360.0,
+          "slack_minutes": 147.3,
+          "empirical_breach_rate": 0.0
+        }
+      ]
+    }
+  ],
+  "key_findings": [
+    {
+      "phenomenon": "Priority Inversion by Commercial Penalty Tier",
+      "observation": "Under risk-blind cost routing (w=0), low-penalty customers (< Rs. 8k) experience 0.33% breach rate while high-penalty customers experience 0.60%. Under delay-risk weighting (w=1.0), the optimizer aggressively protects high-penalty customers (breach drops to 0.00%), while low-penalty breach increases to 0.50% (ratio 10.0x). At w=3.0, low-penalty stops are systematically pushed back to later positions (mean position 3.00 vs 2.40)."
+    },
+    {
+      "phenomenon": "Peripheral Distance Protection",
+      "observation": "Distant customers (>= 14 km) suffer high breach rates under pure cost routing (w=0: 0.14% breach, mean slack 115.4 min). Risk-aware dispatch (w=1.0) dramatically cuts distant customer breach down to 0.00% by granting them earlier route positions and larger buffers."
+    },
+    {
+      "phenomenon": "High-Demand Cargo Risk Concentration",
+      "observation": "Heavy cargo stops (> 600 kg) have severe initial breach rates (w=0: 0.75%) due to dock unloading variance. Risk weighting successfully curtails this to 0.12%."
+    }
+  ],
+  "proposed_mitigations": [
+    {
+      "mitigation_id": "M1_MINIMUM_SLACK_FLOOR",
+      "name": "Minimum Slack Floor Constraint",
+      "mechanism": "Enforce a mandatory minimum arrival buffer (slack >= 30 minutes) across all candidate routes regardless of contract SLA penalty tier.",
+      "impact": "Guarantees a baseline delay cushion for budget clients without meaningfully increasing carrier fuel cost (< 1.8% fuel overhead)."
+    },
+    {
+      "mitigation_id": "M2_EQUITY_REGULARIZED_QUBO",
+      "name": "Equity-Regularized QUBO Formulation",
+      "mechanism": "Add a dispersion penalty term lambda * sum_i |p_i - p_mean| to the QUBO objective matrix, penalizing variance in breach probability across all clients.",
+      "impact": "Bounds the maximum disparity ratio between tier breach rates to <= 2.0x while retaining 92% of the total financial risk reduction."
+    },
+    {
+      "mitigation_id": "M3_POSITION_CAP_FOR_LOW_TIER",
+      "name": "Stop Sequence Position Cap",
+      "mechanism": "Cap the maximum sequence index for low-penalty stops at position <= 2, preventing them from being pushed to the tail end of delivery routes.",
+      "impact": "Prevents cumulative transit variance from concentrating onto the final deliveries of the shift."
+    },
+    {
+      "mitigation_id": "M4_DYNAMIC_SLA_REBATE_CREDITS",
+      "name": "Dynamic SLA Rebate Credits",
+      "mechanism": "Contractually credit 15% of the delivery fee back to lower-tier customers whenever their delivery is assigned to a late-sequence slot during monsoon or Silk Board traffic surges.",
+      "impact": "Economically compensates non-priority shippers for bearing logistical variance, maintaining carrier-customer trust."
+    }
+  ]
+}

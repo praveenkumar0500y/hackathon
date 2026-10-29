@@ -1,0 +1,5 @@
+vehicle_id,capacity_kg,fuel_cost_per_km,driver_shift_cost,avg_speed_kmh,max_shift_minutes
+V1_EcoVan,1200,14.5,2500,40.0,480
+V2_CityTruck,2200,18.0,3400,36.0,480
+V3_HeavyHauler,3200,23.5,4400,32.0,480
+V4_MaxFreight,4000,28.0,5200,30.0,480

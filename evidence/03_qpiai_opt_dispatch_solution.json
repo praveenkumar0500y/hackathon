@@ -1,0 +1,497 @@
+{
+  "solver_used": "QpiAI Opt local solver (classical annealing)",
+  "execution_mode": "AUTHENTICATED_LOCAL",
+  "qubo_size": [
+    48,
+    48
+  ],
+  "num_penalty_terms": 1000,
+  "best_energy": 18984.19,
+  "gap_vs_exact": 0.0,
+  "gap_vs_pruned_pool_optimum_pct": 0.0,
+  "feasible": true,
+  "optimization_framework": "qpiai-opt",
+  "version": "0.0.9",
+  "fallback_reason": null,
+  "client_info": {
+    "plan_tier": "none",
+    "status": "authenticated"
+  },
+  "solver_info": {
+    "solver_engine": "QpiAI Opt local solver (classical annealing)",
+    "problem_formulation": "Explicit Set-Partitioning Direct QUBO + Principled Cascading-Delay Interaction",
+    "problem_classification": "QUBO",
+    "model_inspect_metrics": {
+      "variables": 48,
+      "active_variables": 48,
+      "terms": 1000,
+      "degree": 2,
+      "exact_enumeration_work": 562949953421312000,
+      "annealing_work": 8015616
+    },
+    "result_execution_mode": "local",
+    "result_info": {
+      "problem_class": "QUBO",
+      "execution_mode": "local",
+      "provider": "qpiai-opt-local",
+      "solver": "native-polynomial",
+      "method": "simulated-annealing",
+      "termination": "completed",
+      "has_usable_solution": true,
+      "solution_feasible": true,
+      "optimality_proven": false,
+      "guarantee": "best_found",
+      "source_objective": 18984.19,
+      "transformed": true,
+      "settings": {
+        "num_reads": 4,
+        "num_sweeps": 300,
+        "seed": 42
+      }
+    },
+    "local_limit_exceeded": null,
+    "num_candidates_total": 48,
+    "primary_decision_variables": 48,
+    "qubo_terms": 1000,
+    "annealing_work": 2461600,
+    "num_reads": 4,
+    "num_sweeps": 300,
+    "solver_seed": 42,
+    "cascading_delay_couplings": 34,
+    "scale_derived_penalties": {
+      "C_max_route_inr": 8223.63,
+      "P_cov_stop_coverage_inr": 264117.35,
+      "P_veh_vehicle_conflict_inr": 528234.7,
+      "sdk_recommended_penalty_inr": 264117.35,
+      "derivation_formula": "P_cov = max(2 * C_max + 10,000, sdk_recommended); P_veh = 2 * P_cov"
+    },
+    "solver_runtime_seconds": 1.2697,
+    "solution_status": "OPTIMAL_FEASIBLE",
+    "optimality_gap_pct": 0.0,
+    "optimality_gap_vs_exact_ref_pct": 0.0,
+    "optimality_gap_vs_pruned_ref_pct": 0.0,
+    "optimality_gap_vs_pruned_pool_pct": 0.0
+  },
+  "dispatch_summary": {
+    "active_vehicles_count": 3,
+    "total_stops_covered": 12,
+    "stop_coverage_rate": 1.0,
+    "total_demand_delivered_kg": 6290,
+    "total_fleet_distance_km": 244.21,
+    "total_transport_cost_inr": 5606.57,
+    "total_driver_cost_inr": 13000.0,
+    "total_expected_sla_risk_inr": 377.62,
+    "grand_total_dispatch_cost_inr": 18984.19
+  },
+  "routes": [
+    {
+      "vehicle_id": "V2_CityTruck",
+      "risk_weight": 1.0,
+      "stops": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "ordered_stops": [
+        0,
+        5,
+        6,
+        7,
+        8,
+        0
+      ],
+      "assigned_demand_kg": 1810,
+      "capacity_kg": 2200,
+      "capacity_utilization": 0.8227,
+      "route_distance_km": 95.96,
+      "fuel_cost_inr": 1727.28,
+      "driver_cost_inr": 3400.0,
+      "expected_risk_exposure_inr": 19.92,
+      "total_route_cost_inr": 5147.2,
+      "return_to_depot_min": 300.13,
+      "timeline": [
+        {
+          "stop_id": 5,
+          "name": "Industrial_SW",
+          "arrival_time_min": 39.8,
+          "service_start_min": 90.0,
+          "service_end_min": 110.0,
+          "sla_time_window": [
+            90.0,
+            270.0
+          ],
+          "slack_minutes": 230.2,
+          "contractual_penalty_inr": 7500.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 46.33,
+          "p10_arrival_min": 20.85,
+          "p90_arrival_min": 71.82,
+          "tw_start_min": 90.0,
+          "tw_end_min": 270.0
+        },
+        {
+          "stop_id": 6,
+          "name": "Electronics_West",
+          "arrival_time_min": 134.9,
+          "service_start_min": 134.9,
+          "service_end_min": 154.9,
+          "sla_time_window": [
+            60.0,
+            240.0
+          ],
+          "slack_minutes": 105.1,
+          "contractual_penalty_inr": 11000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 138.93,
+          "p10_arrival_min": 120.03,
+          "p90_arrival_min": 157.83,
+          "tw_start_min": 60.0,
+          "tw_end_min": 240.0
+        },
+        {
+          "stop_id": 7,
+          "name": "Grocery_NW_Center",
+          "arrival_time_min": 186.2,
+          "service_start_min": 186.2,
+          "service_end_min": 211.2,
+          "sla_time_window": [
+            90.0,
+            300.0
+          ],
+          "slack_minutes": 113.8,
+          "contractual_penalty_inr": 8500.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 194.19,
+          "p10_arrival_min": 165.08,
+          "p90_arrival_min": 223.3,
+          "tw_start_min": 90.0,
+          "tw_end_min": 300.0
+        },
+        {
+          "stop_id": 8,
+          "name": "Textile_North_Gate",
+          "arrival_time_min": 235.23,
+          "service_start_min": 235.23,
+          "service_end_min": 260.23,
+          "sla_time_window": [
+            120.0,
+            330.0
+          ],
+          "slack_minutes": 94.77,
+          "contractual_penalty_inr": 6500.0,
+          "qcloud_sla_breach_prob": 0.0031,
+          "p_breach": 0.0031,
+          "expected_financial_exposure_inr": 20.15,
+          "expected_risk_exposure_inr": 20.15,
+          "mean_arrival_min": 248.55,
+          "p10_arrival_min": 210.46,
+          "p90_arrival_min": 286.63,
+          "tw_start_min": 120.0,
+          "tw_end_min": 330.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V3_HeavyHauler",
+      "risk_weight": 1.0,
+      "stops": [
+        1,
+        2,
+        9,
+        12
+      ],
+      "ordered_stops": [
+        0,
+        1,
+        2,
+        9,
+        12,
+        0
+      ],
+      "assigned_demand_kg": 2390,
+      "capacity_kg": 3200,
+      "capacity_utilization": 0.7469,
+      "route_distance_km": 60.38,
+      "fuel_cost_inr": 1418.93,
+      "driver_cost_inr": 4400.0,
+      "expected_risk_exposure_inr": 293.55,
+      "total_route_cost_inr": 6112.48,
+      "return_to_depot_min": 218.21,
+      "timeline": [
+        {
+          "stop_id": 1,
+          "name": "Retail_North_Hub",
+          "arrival_time_min": 33.64,
+          "service_start_min": 33.64,
+          "service_end_min": 53.64,
+          "sla_time_window": [
+            30.0,
+            180.0
+          ],
+          "slack_minutes": 146.36,
+          "contractual_penalty_inr": 8000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 39.56,
+          "p10_arrival_min": 17.06,
+          "p90_arrival_min": 62.06,
+          "tw_start_min": 30.0,
+          "tw_end_min": 180.0
+        },
+        {
+          "stop_id": 2,
+          "name": "Pharma_East_Park",
+          "arrival_time_min": 76.91,
+          "service_start_min": 76.91,
+          "service_end_min": 101.91,
+          "sla_time_window": [
+            45.0,
+            210.0
+          ],
+          "slack_minutes": 133.09,
+          "contractual_penalty_inr": 12000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 86.69,
+          "p10_arrival_min": 56.73,
+          "p90_arrival_min": 116.66,
+          "tw_start_min": 45.0,
+          "tw_end_min": 210.0
+        },
+        {
+          "stop_id": 9,
+          "name": "Automotive_Mid_East",
+          "arrival_time_min": 123.39,
+          "service_start_min": 123.39,
+          "service_end_min": 158.39,
+          "sla_time_window": [
+            90.0,
+            300.0
+          ],
+          "slack_minutes": 176.61,
+          "contractual_penalty_inr": 14000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 137.49,
+          "p10_arrival_min": 100.63,
+          "p90_arrival_min": 174.35,
+          "tw_start_min": 90.0,
+          "tw_end_min": 300.0
+        },
+        {
+          "stop_id": 12,
+          "name": "OmniChannel_Core",
+          "arrival_time_min": 179.83,
+          "service_start_min": 179.83,
+          "service_end_min": 204.83,
+          "sla_time_window": [
+            60.0,
+            270.0
+          ],
+          "slack_minutes": 90.17,
+          "contractual_penalty_inr": 10500.0,
+          "qcloud_sla_breach_prob": 0.028,
+          "p_breach": 0.028,
+          "expected_financial_exposure_inr": 294.0,
+          "expected_risk_exposure_inr": 294.0,
+          "mean_arrival_min": 197.76,
+          "p10_arrival_min": 149.33,
+          "p90_arrival_min": 246.19,
+          "tw_start_min": 60.0,
+          "tw_end_min": 270.0
+        }
+      ]
+    },
+    {
+      "vehicle_id": "V4_MaxFreight",
+      "risk_weight": 1.0,
+      "stops": [
+        3,
+        4,
+        10,
+        11
+      ],
+      "ordered_stops": [
+        0,
+        3,
+        4,
+        10,
+        11,
+        0
+      ],
+      "assigned_demand_kg": 2090,
+      "capacity_kg": 4000,
+      "capacity_utilization": 0.5225,
+      "route_distance_km": 87.87,
+      "fuel_cost_inr": 2460.36,
+      "driver_cost_inr": 5200.0,
+      "expected_risk_exposure_inr": 64.15,
+      "total_route_cost_inr": 7724.51,
+      "return_to_depot_min": 273.86,
+      "timeline": [
+        {
+          "stop_id": 3,
+          "name": "Supermarket_SE",
+          "arrival_time_min": 51.88,
+          "service_start_min": 60.0,
+          "service_end_min": 90.0,
+          "sla_time_window": [
+            60.0,
+            240.0
+          ],
+          "slack_minutes": 188.12,
+          "contractual_penalty_inr": 15000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 61.76,
+          "p10_arrival_min": 31.82,
+          "p90_arrival_min": 91.69,
+          "tw_start_min": 60.0,
+          "tw_end_min": 240.0
+        },
+        {
+          "stop_id": 4,
+          "name": "FMCG_South_Depot",
+          "arrival_time_min": 122.14,
+          "service_start_min": 122.14,
+          "service_end_min": 147.14,
+          "sla_time_window": [
+            60.0,
+            240.0
+          ],
+          "slack_minutes": 117.86,
+          "contractual_penalty_inr": 9500.0,
+          "qcloud_sla_breach_prob": 0.0004,
+          "p_breach": 0.0004,
+          "expected_financial_exposure_inr": 3.8,
+          "expected_risk_exposure_inr": 3.8,
+          "mean_arrival_min": 127.88,
+          "p10_arrival_min": 84.99,
+          "p90_arrival_min": 170.77,
+          "tw_start_min": 60.0,
+          "tw_end_min": 240.0
+        },
+        {
+          "stop_id": 10,
+          "name": "ColdChain_South",
+          "arrival_time_min": 174.64,
+          "service_start_min": 174.64,
+          "service_end_min": 194.64,
+          "sla_time_window": [
+            150.0,
+            360.0
+          ],
+          "slack_minutes": 185.36,
+          "contractual_penalty_inr": 13000.0,
+          "qcloud_sla_breach_prob": 0.0,
+          "p_breach": 0.0,
+          "expected_financial_exposure_inr": 0.0,
+          "expected_risk_exposure_inr": 0.0,
+          "mean_arrival_min": 184.79,
+          "p10_arrival_min": 135.96,
+          "p90_arrival_min": 233.62,
+          "tw_start_min": 150.0,
+          "tw_end_min": 360.0
+        },
+        {
+          "stop_id": 11,
+          "name": "Express_Mid_West",
+          "arrival_time_min": 236.02,
+          "service_start_min": 236.02,
+          "service_end_min": 251.02,
+          "sla_time_window": [
+            120.0,
+            360.0
+          ],
+          "slack_minutes": 123.98,
+          "contractual_penalty_inr": 6000.0,
+          "qcloud_sla_breach_prob": 0.01,
+          "p_breach": 0.01,
+          "expected_financial_exposure_inr": 60.0,
+          "expected_risk_exposure_inr": 60.0,
+          "mean_arrival_min": 252.41,
+          "p10_arrival_min": 193.09,
+          "p90_arrival_min": 311.73,
+          "tw_start_min": 120.0,
+          "tw_end_min": 360.0
+        }
+      ]
+    }
+  ],
+  "exact_reference_comparison": {
+    "candidate_pool_size": 48,
+    "reference_solver": "HiGHS Exact Integer Linear Programming",
+    "reference_cost_inr": 18984.19,
+    "pruned_pool_reference_cost_inr": 18984.19,
+    "solver_objective_inr": 18984.19,
+    "optimality_gap_pct": 0.0,
+    "gap_vs_pruned_pool_pct": 0.0,
+    "status": "CERTIFIED_OPTIMAL",
+    "comparison_scope": "Identical 48-candidate pool (apples-to-apples solver optimality)",
+    "note": "Evaluated against exact HiGHS reference on the identical 48-candidate pool. Cross-pool comparison removed."
+  },
+  "quantum_qaoa_demo": {
+    "status": "COMPLETED",
+    "algorithm": "QAOA (Quantum Approximate Optimization Algorithm)",
+    "backend": "QpiAI-QSV-Local (Local Quantum Statevector Simulator)",
+    "num_qubits": 6,
+    "reps": 1,
+    "max_iterations": 10,
+    "optimizer": "cobyla",
+    "runtime_seconds": 2.7106,
+    "solution": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "info": {
+      "problem_class": "QUBO",
+      "execution_mode": "local",
+      "provider": "qpiai-quantum",
+      "solver": "QAOA",
+      "method": "sampled variational optimization",
+      "termination": "completed",
+      "has_usable_solution": true,
+      "solution_feasible": true,
+      "optimality_proven": false,
+      "guarantee": "best_found",
+      "source_objective": -60.0,
+      "transformed": true,
+      "settings": {
+        "shots": 1024,
+        "reps": 1,
+        "parameters": 2
+      }
+    },
+    "note": "Gate-based quantum optimization demo executed on local simulator QpiAI-QSV-Local without platform quota consumption."
+  },
+  "feasibility_verification": {
+    "all_12_stops_covered": true,
+    "duplicate_assignments": 0,
+    "vehicle_conflict": false,
+    "capacity_respected": true,
+    "shift_limits_respected": true,
+    "is_fully_feasible": true
+  }
+}

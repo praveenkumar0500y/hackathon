@@ -1,0 +1,14 @@
+stop_id,name,x_coord,y_coord,demand_kg,tw_start_min,tw_end_min,service_time_min,sla_penalty_inr
+0,Depot_Central,0.0,0.0,0,0,480,0,0
+1,Retail_North_Hub,6.2,12.5,380,30,180,20,8000
+2,Pharma_East_Park,14.8,8.4,520,45,210,25,12000
+3,Supermarket_SE,18.0,-9.5,750,60,240,30,15000
+4,FMCG_South_Depot,7.5,-16.2,640,60,240,25,9500
+5,Industrial_SW,-12.4,-14.0,430,90,270,20,7500
+6,Electronics_West,-16.5,-3.2,310,60,240,20,11000
+7,Grocery_NW_Center,-13.0,11.0,580,90,300,25,8500
+8,Textile_North_Gate,-4.5,18.2,490,120,330,25,6500
+9,Automotive_Mid_East,11.0,0.5,820,90,300,35,14000
+10,ColdChain_South,-2.0,-11.5,410,150,360,20,13000
+11,Express_Mid_West,-8.0,3.5,290,120,360,15,6000
+12,OmniChannel_Core,3.5,-4.0,670,60,270,25,10500

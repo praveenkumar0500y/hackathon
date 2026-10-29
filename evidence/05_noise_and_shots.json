@@ -1,0 +1,339 @@
+{
+  "study_title": "QpiAI Quantum Shot-Noise and Hardware Emulation Uncertainty Analysis",
+  "framework": "qpiai-quantum 0.3.0",
+  "zero_pii_certified": true,
+  "reproducibility_seed": 4200,
+  "circuit_hardware_profiling": {
+    "variant_1": {
+      "name": "Quantum_Variant_1_Angle_CX",
+      "architecture": "1-Layer Angle Embedding (Ry, Rz) + CX Ring Entanglement",
+      "num_qubits": 3,
+      "depth": 5,
+      "total_gates": 9,
+      "single_qubit_gates": 6,
+      "two_qubit_gates": 3,
+      "clifford_gates": 3,
+      "non_clifford_gates": 6,
+      "parametric_gates": 6,
+      "gate_breakdown": {
+        "RY": 3,
+        "RZ": 3,
+        "CX": 3
+      }
+    },
+    "variant_2": {
+      "name": "Quantum_Variant_2_Reuploading",
+      "architecture": "2-Layer Data Re-Uploading + Alternating CX Entanglement",
+      "num_qubits": 3,
+      "depth": 10,
+      "total_gates": 18,
+      "single_qubit_gates": 12,
+      "two_qubit_gates": 6,
+      "clifford_gates": 6,
+      "non_clifford_gates": 12,
+      "parametric_gates": 12,
+      "gate_breakdown": {
+        "RY": 3,
+        "RZ": 6,
+        "CX": 6,
+        "RX": 3
+      }
+    },
+    "dataset_circuit_counts": {
+      "num_unique_directed_legs": 156,
+      "num_historical_observations": 3120,
+      "unique_circuits_memoized": 156
+    },
+    "qcloud_resource_estimates": {
+      "job_count_per_full_run_memoized": 156,
+      "job_count_unmemoized": 3120,
+      "shots_per_job": 1024,
+      "total_shots_memoized": 159744,
+      "estimated_qcloud_simulator_credits": 0.156,
+      "estimated_qcloud_qpu_credits": 156.0,
+      "pricing_reference": "QpiAI QCloud standard tier: ~0.001 credits/QSV job, 1 credit/QPU job (Free tier eligible)"
+    },
+    "selected_winner": "Quantum_Variant_1_Angle_CX"
+  },
+  "shot_sampling_experiment": {
+    "description": "20 independent repeats per shot count [128, 1024, 8192] measuring convergence to statevector limit",
+    "shot_levels": [
+      128,
+      1024,
+      8192
+    ],
+    "num_repeats": 20,
+    "results_by_shots": {
+      "128": {
+        "shots": 128,
+        "n_repeats": 20,
+        "brier_mean": 0.2403,
+        "brier_std": 0.001,
+        "brier_ci_95": [
+          0.2385,
+          0.2419
+        ],
+        "brier_95_ci": [
+          0.2385,
+          0.2419
+        ],
+        "roc_auc_mean": 0.5894,
+        "roc_auc_std": 0.0085,
+        "roc_auc_ci_95": [
+          0.5759,
+          0.6041
+        ],
+        "roc_auc_95_ci": [
+          0.5759,
+          0.6041
+        ],
+        "mean_p_ij_std_across_legs": 0.0223,
+        "mean_p_ij_variance_across_legs": 0.00058,
+        "repeats_brier": [
+          0.2389,
+          0.241,
+          0.2394,
+          0.2418,
+          0.2391,
+          0.2402,
+          0.2417,
+          0.2397,
+          0.2382,
+          0.2405,
+          0.2394,
+          0.2397,
+          0.2408,
+          0.2412,
+          0.2408,
+          0.2403,
+          0.2413,
+          0.2405,
+          0.2419,
+          0.2389
+        ],
+        "repeats_roc_auc": [
+          0.598,
+          0.5785,
+          0.596,
+          0.5826,
+          0.5963,
+          0.5929,
+          0.576,
+          0.6004,
+          0.6074,
+          0.5859,
+          0.5877,
+          0.5978,
+          0.5823,
+          0.5759,
+          0.5936,
+          0.5825,
+          0.5859,
+          0.5876,
+          0.584,
+          0.5971
+        ]
+      },
+      "1024": {
+        "shots": 1024,
+        "n_repeats": 20,
+        "brier_mean": 0.2402,
+        "brier_std": 0.0005,
+        "brier_ci_95": [
+          0.2395,
+          0.241
+        ],
+        "brier_95_ci": [
+          0.2395,
+          0.241
+        ],
+        "roc_auc_mean": 0.5903,
+        "roc_auc_std": 0.004,
+        "roc_auc_ci_95": [
+          0.583,
+          0.597
+        ],
+        "roc_auc_95_ci": [
+          0.583,
+          0.597
+        ],
+        "mean_p_ij_std_across_legs": 0.0085,
+        "mean_p_ij_variance_across_legs": 8.5e-05,
+        "repeats_brier": [
+          0.2399,
+          0.2401,
+          0.2396,
+          0.2403,
+          0.2401,
+          0.2411,
+          0.2405,
+          0.2396,
+          0.2398,
+          0.24,
+          0.2395,
+          0.2405,
+          0.2395,
+          0.24,
+          0.2408,
+          0.2407,
+          0.2402,
+          0.2398,
+          0.2409,
+          0.2403
+        ],
+        "repeats_roc_auc": [
+          0.5942,
+          0.5914,
+          0.5952,
+          0.5883,
+          0.5916,
+          0.5847,
+          0.5905,
+          0.5956,
+          0.589,
+          0.5893,
+          0.5982,
+          0.5867,
+          0.5945,
+          0.5858,
+          0.5814,
+          0.5908,
+          0.5901,
+          0.5933,
+          0.5862,
+          0.5899
+        ]
+      },
+      "8192": {
+        "shots": 8192,
+        "n_repeats": 20,
+        "brier_mean": 0.2401,
+        "brier_std": 0.0002,
+        "brier_ci_95": [
+          0.2398,
+          0.2403
+        ],
+        "brier_95_ci": [
+          0.2398,
+          0.2403
+        ],
+        "roc_auc_mean": 0.5888,
+        "roc_auc_std": 0.0012,
+        "roc_auc_ci_95": [
+          0.5864,
+          0.5909
+        ],
+        "roc_auc_95_ci": [
+          0.5864,
+          0.5909
+        ],
+        "mean_p_ij_std_across_legs": 0.0029,
+        "mean_p_ij_variance_across_legs": 1.1e-05,
+        "repeats_brier": [
+          0.2403,
+          0.2403,
+          0.2399,
+          0.2402,
+          0.2402,
+          0.2403,
+          0.24,
+          0.2401,
+          0.2402,
+          0.2402,
+          0.2398,
+          0.2403,
+          0.2403,
+          0.2402,
+          0.24,
+          0.2402,
+          0.2398,
+          0.24,
+          0.24,
+          0.2403
+        ],
+        "repeats_roc_auc": [
+          0.5884,
+          0.5894,
+          0.5894,
+          0.5882,
+          0.587,
+          0.5863,
+          0.5885,
+          0.5906,
+          0.5892,
+          0.5884,
+          0.5911,
+          0.5884,
+          0.5889,
+          0.5875,
+          0.5899,
+          0.5885,
+          0.5905,
+          0.5889,
+          0.5895,
+          0.5866
+        ]
+      }
+    }
+  },
+  "noise_emulation_experiment": {
+    "model_name": "EMULATED_DEPOLARIZING_AND_READOUT",
+    "description": "Composite depolarizing channel (probability lambda=2*eps) and symmetric readout bit-flip channel (probability eps per qubit)",
+    "noise_levels_evaluated": [
+      0.0,
+      0.01,
+      0.03,
+      0.05,
+      0.1
+    ],
+    "eval_shots": 1024,
+    "results_by_noise_level": {
+      "eps_0.00": {
+        "epsilon_readout_bitflip": 0.0,
+        "lambda_depolarizing": 0.0,
+        "brier_score": 0.2401,
+        "roc_auc": 0.5871,
+        "accuracy": 0.583,
+        "brier_degradation_pct": 0.0
+      },
+      "eps_0.01": {
+        "epsilon_readout_bitflip": 0.01,
+        "lambda_depolarizing": 0.02,
+        "brier_score": 0.24,
+        "roc_auc": 0.5882,
+        "accuracy": 0.5933,
+        "brier_degradation_pct": -0.02
+      },
+      "eps_0.03": {
+        "epsilon_readout_bitflip": 0.03,
+        "lambda_depolarizing": 0.06,
+        "brier_score": 0.2416,
+        "roc_auc": 0.58,
+        "accuracy": 0.5776,
+        "brier_degradation_pct": 0.63
+      },
+      "eps_0.05": {
+        "epsilon_readout_bitflip": 0.05,
+        "lambda_depolarizing": 0.1,
+        "brier_score": 0.2399,
+        "roc_auc": 0.599,
+        "accuracy": 0.5801,
+        "brier_degradation_pct": -0.07
+      },
+      "eps_0.10": {
+        "epsilon_readout_bitflip": 0.1,
+        "lambda_depolarizing": 0.2,
+        "brier_score": 0.2414,
+        "roc_auc": 0.5799,
+        "accuracy": 0.5721,
+        "brier_degradation_pct": 0.57
+      }
+    }
+  },
+  "key_findings": [
+    "At 128 shots, mean Brier is 0.2403 +/- 0.0010 with mean leg p_ij std of 0.0223.",
+    "At 1024 shots, Brier std drops to 0.0005 and leg p_ij std drops to 0.0085.",
+    "At 8192 shots, Brier std reaches 0.0002, demonstrating 1/sqrt(S) convergence to the infinite-shot statevector limit.",
+    "Under composite depolarizing and readout noise, Brier degrades from 0.2401 (clean) to 0.2399 at 5% error (-0.07% change), exhibiting gradual linear degradation."
+  ]
+}

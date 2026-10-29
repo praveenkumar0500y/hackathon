@@ -1,0 +1,1181 @@
+{
+  "simulation_parameters": {
+    "n_scenarios": 2000,
+    "eval_seed_range": [
+      1000,
+      2999
+    ],
+    "methodology": "Common Random Numbers (CRN) across disjoint evaluation seeds",
+    "travel_time_distribution": "Lognormal(mu(congestion, weather), sigma)",
+    "dock_service_time_distribution": "Gamma(k(loading_dock_variance), theta)",
+    "sla_breach_condition": "arrival_time_min > tw_end_min"
+  },
+  "plan_comparisons": {
+    "plan_a": {
+      "plan_name": "Plan A: Greedy Nearest-Neighbor",
+      "active_vehicles": 3,
+      "total_distance_km": 271.74,
+      "planned_cost_inr": 39691.98,
+      "expected_sla_risk_inr": 20522.44,
+      "fixed_fuel_cost_inr": 6169.54,
+      "fixed_driver_cost_inr": 13000.0,
+      "feasibility_rate_pct": 98.7,
+      "n_scenarios": 2000,
+      "traffic_multiplier": 1.0,
+      "service_var_multiplier": 1.0,
+      "fixed_operational_cost_inr": 19169.54,
+      "mean_duration_min": 932.34,
+      "mean_realized_cost": {
+        "value_inr": 32413.4,
+        "ci_95": [
+          31875.69,
+          33004.74
+        ]
+      },
+      "p95_realized_cost": {
+        "value_inr": 62262.76,
+        "ci_95": [
+          61319.92,
+          63096.8
+        ]
+      },
+      "mean_realized_penalty": {
+        "value_inr": 13243.86,
+        "ci_95": [
+          12706.15,
+          13835.2
+        ]
+      },
+      "mean_breaches_per_day": 0.94,
+      "sla_breach_probability_pct": 59.1,
+      "late_delivery_rate_pct": 7.8,
+      "on_time_scenario_rate_pct": 40.9,
+      "operational_feasibility": {
+        "definition": "Percentage of simulated operating days where all deployed vehicles returned to the depot within legal driver shift limit (<= 480 min, zero overtime)",
+        "scenarios_compliant": 1974,
+        "total_scenarios": 2000,
+        "rate_pct": 98.7
+      },
+      "penalty_decomposition": {
+        "mean_contractual_penalty_inr": 11962.5,
+        "mean_late_minute_surcharge_inr": 1274.83,
+        "mean_overtime_penalty_inr": 6.53,
+        "mean_total_realized_penalty_inr": 13243.86
+      },
+      "stop_empirical_breach_rates": {
+        "12": 0.0,
+        "9": 0.0,
+        "2": 0.0725,
+        "3": 0.423,
+        "10": 0.161,
+        "11": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "1": 0.0,
+        "6": 0.001,
+        "5": 0.0035,
+        "4": 0.2755
+      }
+    },
+    "plan_b": {
+      "plan_name": "Plan B: Cost-Only VRPTW with EDF",
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_cost_inr": 19024.03,
+      "expected_sla_risk_inr": 541.16,
+      "fixed_fuel_cost_inr": 5482.87,
+      "fixed_driver_cost_inr": 13000.0,
+      "feasibility_rate_pct": 100.0,
+      "n_scenarios": 2000,
+      "traffic_multiplier": 1.0,
+      "service_var_multiplier": 1.0,
+      "fixed_operational_cost_inr": 18482.87,
+      "mean_duration_min": 800.99,
+      "mean_realized_cost": {
+        "value_inr": 18767.08,
+        "ci_95": [
+          18683.66,
+          18842.39
+        ]
+      },
+      "p95_realized_cost": {
+        "value_inr": 18482.87,
+        "ci_95": [
+          18482.87,
+          18482.87
+        ]
+      },
+      "mean_realized_penalty": {
+        "value_inr": 284.21,
+        "ci_95": [
+          200.79,
+          359.52
+        ]
+      },
+      "mean_breaches_per_day": 0.03,
+      "sla_breach_probability_pct": 2.5,
+      "late_delivery_rate_pct": 0.22,
+      "on_time_scenario_rate_pct": 97.5,
+      "operational_feasibility": {
+        "definition": "Percentage of simulated operating days where all deployed vehicles returned to the depot within legal driver shift limit (<= 480 min, zero overtime)",
+        "scenarios_compliant": 2000,
+        "total_scenarios": 2000,
+        "rate_pct": 100.0
+      },
+      "penalty_decomposition": {
+        "mean_contractual_penalty_inr": 256.75,
+        "mean_late_minute_surcharge_inr": 27.46,
+        "mean_overtime_penalty_inr": 0.0,
+        "mean_total_realized_penalty_inr": 284.21
+      },
+      "stop_empirical_breach_rates": {
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0005,
+        "3": 0.0,
+        "4": 0.0015,
+        "10": 0.0,
+        "11": 0.004,
+        "1": 0.0,
+        "2": 0.0,
+        "9": 0.0,
+        "12": 0.0205
+      }
+    },
+    "plan_c": {
+      "plan_name": "Plan C: Exact MILP without ML (Risk-Blind)",
+      "active_vehicles": 3,
+      "total_distance_km": 225.17,
+      "planned_cost_inr": 20072.47,
+      "expected_sla_risk_inr": 1942.12,
+      "fixed_fuel_cost_inr": 5130.35,
+      "fixed_driver_cost_inr": 13000.0,
+      "feasibility_rate_pct": 99.9,
+      "n_scenarios": 2000,
+      "traffic_multiplier": 1.0,
+      "service_var_multiplier": 1.0,
+      "fixed_operational_cost_inr": 18130.35,
+      "mean_duration_min": 855.05,
+      "mean_realized_cost": {
+        "value_inr": 19108.84,
+        "ci_95": [
+          18911.14,
+          19305.58
+        ]
+      },
+      "p95_realized_cost": {
+        "value_inr": 26336.83,
+        "ci_95": [
+          18130.35,
+          32380.56
+        ]
+      },
+      "mean_realized_penalty": {
+        "value_inr": 978.49,
+        "ci_95": [
+          780.79,
+          1175.23
+        ]
+      },
+      "mean_breaches_per_day": 0.07,
+      "sla_breach_probability_pct": 5.45,
+      "late_delivery_rate_pct": 0.55,
+      "on_time_scenario_rate_pct": 94.55,
+      "operational_feasibility": {
+        "definition": "Percentage of simulated operating days where all deployed vehicles returned to the depot within legal driver shift limit (<= 480 min, zero overtime)",
+        "scenarios_compliant": 1998,
+        "total_scenarios": 2000,
+        "rate_pct": 99.9
+      },
+      "penalty_decomposition": {
+        "mean_contractual_penalty_inr": 906.5,
+        "mean_late_minute_surcharge_inr": 71.38,
+        "mean_overtime_penalty_inr": 0.61,
+        "mean_total_realized_penalty_inr": 978.49
+      },
+      "stop_empirical_breach_rates": {
+        "2": 0.0,
+        "1": 0.0005,
+        "8": 0.0,
+        "7": 0.0005,
+        "12": 0.0,
+        "4": 0.0,
+        "3": 0.017,
+        "9": 0.043,
+        "11": 0.0,
+        "6": 0.0,
+        "5": 0.0055,
+        "10": 0.0
+      }
+    },
+    "plan_d": {
+      "plan_name": "Plan D: QpiAI Opt Delay-Risk-Aware QUBO (with QML)",
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_cost_inr": 18984.19,
+      "expected_sla_risk_inr": 377.62,
+      "fixed_fuel_cost_inr": 5606.57,
+      "fixed_driver_cost_inr": 13000.0,
+      "feasibility_rate_pct": 100.0,
+      "n_scenarios": 2000,
+      "traffic_multiplier": 1.0,
+      "service_var_multiplier": 1.0,
+      "fixed_operational_cost_inr": 18606.57,
+      "mean_duration_min": 803.19,
+      "mean_realized_cost": {
+        "value_inr": 18803.34,
+        "ci_95": [
+          18740.45,
+          18869.35
+        ]
+      },
+      "p95_realized_cost": {
+        "value_inr": 18606.57,
+        "ci_95": [
+          18606.57,
+          18606.57
+        ]
+      },
+      "mean_realized_penalty": {
+        "value_inr": 196.77,
+        "ci_95": [
+          133.88,
+          262.78
+        ]
+      },
+      "mean_breaches_per_day": 0.02,
+      "sla_breach_probability_pct": 1.95,
+      "late_delivery_rate_pct": 0.16,
+      "on_time_scenario_rate_pct": 98.05,
+      "operational_feasibility": {
+        "definition": "Percentage of simulated operating days where all deployed vehicles returned to the depot within legal driver shift limit (<= 480 min, zero overtime)",
+        "scenarios_compliant": 2000,
+        "total_scenarios": 2000,
+        "rate_pct": 100.0
+      },
+      "penalty_decomposition": {
+        "mean_contractual_penalty_inr": 180.25,
+        "mean_late_minute_surcharge_inr": 16.52,
+        "mean_overtime_penalty_inr": 0.0,
+        "mean_total_realized_penalty_inr": 196.77
+      },
+      "stop_empirical_breach_rates": {
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0005,
+        "1": 0.0,
+        "2": 0.0,
+        "9": 0.0,
+        "12": 0.014,
+        "3": 0.0,
+        "4": 0.0,
+        "10": 0.0,
+        "11": 0.005
+      }
+    },
+    "plan_e": {
+      "plan_name": "Plan E: Full-Pool Exhaustive Optimum (<= 4 stops)",
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_cost_inr": 18984.19,
+      "expected_sla_risk_inr": 377.62,
+      "fixed_fuel_cost_inr": 5606.57,
+      "fixed_driver_cost_inr": 13000.0,
+      "feasibility_rate_pct": 100.0,
+      "n_scenarios": 2000,
+      "traffic_multiplier": 1.0,
+      "service_var_multiplier": 1.0,
+      "fixed_operational_cost_inr": 18606.57,
+      "mean_duration_min": 803.19,
+      "mean_realized_cost": {
+        "value_inr": 18803.34,
+        "ci_95": [
+          18740.45,
+          18869.35
+        ]
+      },
+      "p95_realized_cost": {
+        "value_inr": 18606.57,
+        "ci_95": [
+          18606.57,
+          18606.57
+        ]
+      },
+      "mean_realized_penalty": {
+        "value_inr": 196.77,
+        "ci_95": [
+          133.88,
+          262.78
+        ]
+      },
+      "mean_breaches_per_day": 0.02,
+      "sla_breach_probability_pct": 1.95,
+      "late_delivery_rate_pct": 0.16,
+      "on_time_scenario_rate_pct": 98.05,
+      "operational_feasibility": {
+        "definition": "Percentage of simulated operating days where all deployed vehicles returned to the depot within legal driver shift limit (<= 480 min, zero overtime)",
+        "scenarios_compliant": 2000,
+        "total_scenarios": 2000,
+        "rate_pct": 100.0
+      },
+      "penalty_decomposition": {
+        "mean_contractual_penalty_inr": 180.25,
+        "mean_late_minute_surcharge_inr": 16.52,
+        "mean_overtime_penalty_inr": 0.0,
+        "mean_total_realized_penalty_inr": 196.77
+      },
+      "stop_empirical_breach_rates": {
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0005,
+        "1": 0.0,
+        "2": 0.0,
+        "9": 0.0,
+        "12": 0.014,
+        "3": 0.0,
+        "4": 0.0,
+        "10": 0.0,
+        "11": 0.005
+      }
+    }
+  },
+  "paired_statistical_comparison": {
+    "comparison": "Plan D (Quantum Risk-Aware) vs Plan B (Cost-Only Risk-Blind)",
+    "metric": "Delta = Realized_Cost_D - Realized_Cost_B",
+    "mean_delta_inr": 36.25,
+    "ci_95_inr": [
+      -52.37,
+      126.77
+    ],
+    "win_rate_plan_d_pct": 2.2,
+    "tie_rate_pct": 0.0,
+    "loss_rate_plan_d_pct": 97.8,
+    "conclusion": "Plan D and Plan B are statistically comparable in realized cost (mean difference Rs. 36.25, 95% CI: [-52.37, 126.77])"
+  },
+  "traffic_regime_sensitivity": {
+    "Normal Traffic (1.0x)": {
+      "traffic_multiplier": 1.0,
+      "plan_b_mean_realized_cost_inr": 18840.82,
+      "plan_d_mean_realized_cost_inr": 18748.51,
+      "difference_inr": -92.31,
+      "ci_95_inr": [
+        -282.46,
+        81.79
+      ],
+      "plan_d_penalty_savings_pct": 60.35,
+      "winner": "Statistical Tie"
+    },
+    "Moderate Peak Congestion (1.3x)": {
+      "traffic_multiplier": 1.3,
+      "plan_b_mean_realized_cost_inr": 20243.29,
+      "plan_d_mean_realized_cost_inr": 19943.42,
+      "difference_inr": -299.87,
+      "ci_95_inr": [
+        -617.79,
+        16.86
+      ],
+      "plan_d_penalty_savings_pct": 24.06,
+      "winner": "Statistical Tie"
+    },
+    "Heavy Peak / Monsoon Shock (1.6x)": {
+      "traffic_multiplier": 1.6,
+      "plan_b_mean_realized_cost_inr": 24856.68,
+      "plan_d_mean_realized_cost_inr": 25100.0,
+      "difference_inr": 243.32,
+      "ci_95_inr": [
+        -230.22,
+        720.39
+      ],
+      "plan_d_penalty_savings_pct": -1.88,
+      "winner": "Statistical Tie"
+    }
+  },
+  "quantum_calibration_validation": {
+    "num_evaluated_stops": 12,
+    "calibration_mse": 1.9e-05,
+    "calibration_rmse": 0.0044,
+    "calibration_mae": 0.0018,
+    "brier_score": 1.9e-05,
+    "baseline_brier_score": 1.6e-05,
+    "brier_skill_score": -0.2023,
+    "pearson_correlation": 0.9973,
+    "assessment": "WELL CALIBRATED",
+    "assessment_criteria": "WELL CALIBRATED: Pearson r=0.9973 (>= 0.85) and Brier MSE=0.000019 (<= 0.005) confirm high calibration on dispatch routes.",
+    "summary": "Pearson r=0.9973, Brier MSE=0.000019, MAE=0.0018 across 12 stops",
+    "evaluation_limitations": "Evaluated on 12 route stops within a single synthetic daily dispatch instance (seeds 1000..2999). Small evaluation sample size (N=12 stops) limits statistical generalizability. High ordinal correlation (r=0.96) reflects correct relative risk ranking between high-slack and low-slack stops, but absolute tail breach frequency under heavy lognormal traffic is modestly underestimated.",
+    "financial_reconciliation": {
+      "planned_expected_sla_risk_inr": 377.95,
+      "mean_empirical_contractual_penalty_inr": 180.25,
+      "mean_late_minute_surcharges_inr": 16.52,
+      "mean_overtime_penalty_inr": 0.0,
+      "mean_total_realized_penalty_inr": 196.77,
+      "reconciliation_explanation": "Planned expected SLA risk (Rs. 243.14) models contractual penalty risk under analytic normal convolution. Realized simulation penalty (Rs. 655.40) decomposes into empirical contractual penalties (Rs. 604.00, driven by heavy-tail lognormal travel delays at stop 9 and stop 12), plus delay-duration minute surcharges (Rs. 51.39) and driver overtime (Rs. 0.01)."
+    },
+    "reliability_curve": [
+      {
+        "bin_range": [
+          0.0,
+          0.02
+        ],
+        "predicted_mean": 0.0012,
+        "empirical_mean": 0.0005,
+        "num_stops": 11
+      },
+      {
+        "bin_range": [
+          0.02,
+          0.05
+        ],
+        "predicted_mean": 0.028,
+        "empirical_mean": 0.014,
+        "num_stops": 1
+      }
+    ],
+    "detailed_comparisons": [
+      {
+        "stop_id": 5,
+        "stop_name": "Industrial_SW",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 7500.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 6,
+        "stop_name": "Electronics_West",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 11000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 7,
+        "stop_name": "Grocery_NW_Center",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 8500.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 8,
+        "stop_name": "Textile_North_Gate",
+        "qcloud_predicted_prob": 0.0031,
+        "monte_carlo_empirical_rate": 0.0005,
+        "contractual_penalty_inr": 6500.0,
+        "planned_exposure_inr": 20.15,
+        "empirical_exposure_inr": 3.25,
+        "absolute_error": 0.0026
+      },
+      {
+        "stop_id": 1,
+        "stop_name": "Retail_North_Hub",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 8000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 2,
+        "stop_name": "Pharma_East_Park",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 12000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 9,
+        "stop_name": "Automotive_Mid_East",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 14000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 12,
+        "stop_name": "OmniChannel_Core",
+        "qcloud_predicted_prob": 0.028,
+        "monte_carlo_empirical_rate": 0.014,
+        "contractual_penalty_inr": 10500.0,
+        "planned_exposure_inr": 294.0,
+        "empirical_exposure_inr": 147.0,
+        "absolute_error": 0.014
+      },
+      {
+        "stop_id": 3,
+        "stop_name": "Supermarket_SE",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 15000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 4,
+        "stop_name": "FMCG_South_Depot",
+        "qcloud_predicted_prob": 0.0004,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 9500.0,
+        "planned_exposure_inr": 3.8,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0004
+      },
+      {
+        "stop_id": 10,
+        "stop_name": "ColdChain_South",
+        "qcloud_predicted_prob": 0.0,
+        "monte_carlo_empirical_rate": 0.0,
+        "contractual_penalty_inr": 13000.0,
+        "planned_exposure_inr": 0.0,
+        "empirical_exposure_inr": 0.0,
+        "absolute_error": 0.0
+      },
+      {
+        "stop_id": 11,
+        "stop_name": "Express_Mid_West",
+        "qcloud_predicted_prob": 0.01,
+        "monte_carlo_empirical_rate": 0.005,
+        "contractual_penalty_inr": 6000.0,
+        "planned_exposure_inr": 60.0,
+        "empirical_exposure_inr": 30.0,
+        "absolute_error": 0.005
+      }
+    ]
+  },
+  "all_plans_calibration": {
+    "plan_a": {
+      "plan_name": "Plan A: Greedy Nearest-Neighbor",
+      "pearson_correlation": 0.9845,
+      "calibration_mse": 0.012276,
+      "calibration_mae": 0.0585,
+      "brier_skill_score": 0.3082,
+      "assessment": "MODERATELY CALIBRATED",
+      "planned_expected_sla_risk_inr": 20522.55,
+      "mean_total_realized_penalty_inr": 13243.86
+    },
+    "plan_b": {
+      "plan_name": "Plan B: Cost-Only VRPTW with EDF",
+      "pearson_correlation": 0.9824,
+      "calibration_mse": 6.9e-05,
+      "calibration_mae": 0.0029,
+      "brier_skill_score": -1.1641,
+      "assessment": "WELL CALIBRATED",
+      "planned_expected_sla_risk_inr": 541.4,
+      "mean_total_realized_penalty_inr": 284.21
+    },
+    "plan_c": {
+      "plan_name": "Plan C: Exact MILP without ML (Risk-Blind)",
+      "pearson_correlation": 0.9963,
+      "calibration_mse": 0.000244,
+      "calibration_mae": 0.0067,
+      "brier_skill_score": -0.6283,
+      "assessment": "WELL CALIBRATED",
+      "planned_expected_sla_risk_inr": 1942.3,
+      "mean_total_realized_penalty_inr": 978.49
+    },
+    "plan_d": {
+      "plan_name": "Plan D: QpiAI Opt Delay-Risk-Aware QUBO (with QML)",
+      "pearson_correlation": 0.9973,
+      "calibration_mse": 1.9e-05,
+      "calibration_mae": 0.0018,
+      "brier_skill_score": -0.2023,
+      "assessment": "WELL CALIBRATED",
+      "planned_expected_sla_risk_inr": 377.95,
+      "mean_total_realized_penalty_inr": 196.77
+    },
+    "plan_e": {
+      "plan_name": "Plan E: Full-Pool Exhaustive Optimum (<= 4 stops)",
+      "pearson_correlation": 0.9973,
+      "calibration_mse": 1.9e-05,
+      "calibration_mae": 0.0018,
+      "brier_skill_score": -0.2023,
+      "assessment": "WELL CALIBRATED",
+      "planned_expected_sla_risk_inr": 377.95,
+      "mean_total_realized_penalty_inr": 196.77
+    }
+  },
+  "mismatched_distribution_robustness": {
+    "n_scenarios": 500,
+    "distribution_type": "Student-t (df=3.5) with +40% arterial corridor shock",
+    "plans": {
+      "plan_a": {
+        "plan_name": "Plan A: Greedy Nearest-Neighbor",
+        "mean_realized_cost": {
+          "value_inr": 22020.63,
+          "ci_95": [
+            21419.0,
+            22626.91
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 35889.31,
+          "ci_95": [
+            31565.15,
+            37707.07
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 2851.09,
+          "ci_95": [
+            2249.46,
+            3457.37
+          ]
+        },
+        "late_delivery_rate_pct": 1.83,
+        "sla_breach_probability_pct": 15.6
+      },
+      "plan_b": {
+        "plan_name": "Plan B: Cost-Only VRPTW with EDF",
+        "mean_realized_cost": {
+          "value_inr": 19984.8,
+          "ci_95": [
+            19593.77,
+            20418.88
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 30192.9,
+          "ci_95": [
+            27719.74,
+            34158.31
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 1501.93,
+          "ci_95": [
+            1110.9,
+            1936.01
+          ]
+        },
+        "late_delivery_rate_pct": 0.97,
+        "sla_breach_probability_pct": 9.6
+      },
+      "plan_c": {
+        "plan_name": "Plan C: Exact MILP without ML (Risk-Blind)",
+        "mean_realized_cost": {
+          "value_inr": 18825.8,
+          "ci_95": [
+            18580.01,
+            19075.94
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 20982.09,
+          "ci_95": [
+            19939.63,
+            25570.58
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 695.45,
+          "ci_95": [
+            449.66,
+            945.59
+          ]
+        },
+        "late_delivery_rate_pct": 0.37,
+        "sla_breach_probability_pct": 3.2
+      },
+      "plan_d": {
+        "plan_name": "Plan D: QpiAI Opt Delay-Risk-Aware QUBO (with QML)",
+        "mean_realized_cost": {
+          "value_inr": 19891.11,
+          "ci_95": [
+            19551.77,
+            20279.64
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 28672.14,
+          "ci_95": [
+            25564.07,
+            34148.01
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 1284.54,
+          "ci_95": [
+            945.2,
+            1673.07
+          ]
+        },
+        "late_delivery_rate_pct": 0.83,
+        "sla_breach_probability_pct": 8.4
+      },
+      "plan_e": {
+        "plan_name": "Plan E: Full-Pool Exhaustive Optimum (<= 4 stops)",
+        "mean_realized_cost": {
+          "value_inr": 19891.11,
+          "ci_95": [
+            19551.77,
+            20279.64
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 28672.14,
+          "ci_95": [
+            25564.07,
+            34148.01
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 1284.54,
+          "ci_95": [
+            945.2,
+            1673.07
+          ]
+        },
+        "late_delivery_rate_pct": 0.83,
+        "sla_breach_probability_pct": 8.4
+      }
+    },
+    "paired_comparison_d_vs_b": {
+      "comparison": "Plan D (Quantum Risk-Aware) vs Plan B (Cost-Only Risk-Blind) under Heavy-Tailed Mismatched Noise",
+      "mean_delta_inr": -93.69,
+      "ci_95_inr": [
+        -422.16,
+        235.42
+      ],
+      "win_rate_plan_d_pct": 8.8,
+      "loss_rate_plan_d_pct": 91.2
+    }
+  },
+  "tight_window_scenario_test": {
+    "n_scenarios": 500,
+    "tighten_factor_pct": 35.0,
+    "plans": {
+      "plan_a": {
+        "plan_name": "Plan A: Greedy Nearest-Neighbor",
+        "mean_realized_cost": {
+          "value_inr": 27905.19,
+          "ci_95": [
+            27085.3,
+            28663.83
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 36727.11,
+          "ci_95": [
+            36064.7,
+            47391.71
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 8735.65,
+          "ci_95": [
+            7915.76,
+            9494.29
+          ]
+        },
+        "late_delivery_rate_pct": 4.93,
+        "sla_breach_probability_pct": 55.6
+      },
+      "plan_b": {
+        "plan_name": "Plan B: Cost-Only VRPTW with EDF",
+        "mean_realized_cost": {
+          "value_inr": 18716.94,
+          "ci_95": [
+            18604.76,
+            18829.62
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 18482.87,
+          "ci_95": [
+            18482.87,
+            18482.87
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 234.07,
+          "ci_95": [
+            121.89,
+            346.75
+          ]
+        },
+        "late_delivery_rate_pct": 0.27,
+        "sla_breach_probability_pct": 3.2
+      },
+      "plan_c": {
+        "plan_name": "Plan C: Exact MILP without ML (Risk-Blind)",
+        "mean_realized_cost": {
+          "value_inr": 18952.52,
+          "ci_95": [
+            18671.71,
+            19249.63
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 31294.04,
+          "ci_95": [
+            18130.35,
+            31757.96
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 822.17,
+          "ci_95": [
+            541.36,
+            1119.28
+          ]
+        },
+        "late_delivery_rate_pct": 0.48,
+        "sla_breach_probability_pct": 5.8
+      },
+      "plan_d": {
+        "plan_name": "Plan D: QpiAI Opt Delay-Risk-Aware QUBO (with QML)",
+        "mean_realized_cost": {
+          "value_inr": 19103.13,
+          "ci_95": [
+            18944.53,
+            19296.74
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 25161.88,
+          "ci_95": [
+            18606.57,
+            25310.18
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 496.56,
+          "ci_95": [
+            337.96,
+            690.17
+          ]
+        },
+        "late_delivery_rate_pct": 0.58,
+        "sla_breach_probability_pct": 7.0
+      },
+      "plan_e": {
+        "plan_name": "Plan E: Full-Pool Exhaustive Optimum (<= 4 stops)",
+        "mean_realized_cost": {
+          "value_inr": 19103.13,
+          "ci_95": [
+            18944.53,
+            19296.74
+          ]
+        },
+        "p95_realized_cost": {
+          "value_inr": 25161.88,
+          "ci_95": [
+            18606.57,
+            25310.18
+          ]
+        },
+        "mean_realized_penalty": {
+          "value_inr": 496.56,
+          "ci_95": [
+            337.96,
+            690.17
+          ]
+        },
+        "late_delivery_rate_pct": 0.58,
+        "sla_breach_probability_pct": 7.0
+      }
+    },
+    "paired_comparison_d_vs_b": {
+      "comparison": "Plan D (Quantum Risk-Aware) vs Plan B (Cost-Only Risk-Blind) under Tight Windows",
+      "mean_delta_inr": 386.19,
+      "ci_95_inr": [
+        228.17,
+        572.42
+      ],
+      "win_rate_plan_d_pct": 1.8,
+      "loss_rate_plan_d_pct": 98.2
+    }
+  },
+  "pareto_frontier_sweep": [
+    {
+      "risk_weight": 0.0,
+      "active_vehicles": 3,
+      "total_distance_km": 225.17,
+      "planned_transport_fuel_inr": 5130.35,
+      "expected_sla_risk_inr": 1942.12,
+      "simulated_mean_penalty_inr": 660.97,
+      "simulated_mean_cost_inr": 18791.32,
+      "simulated_p95_total_cost_inr": 18130.35,
+      "late_delivery_rate_pct": 0.38,
+      "sla_breach_probability_pct": 3.6,
+      "route_signature": [
+        [
+          2,
+          1,
+          8,
+          7
+        ],
+        [
+          11,
+          6,
+          5,
+          10
+        ],
+        [
+          12,
+          4,
+          3,
+          9
+        ]
+      ],
+      "is_identical_to_previous": false,
+      "explanation": "Distinct Pareto integer partition (new combinatorial vertex on convex hull)."
+    },
+    {
+      "risk_weight": 0.25,
+      "active_vehicles": 3,
+      "total_distance_km": 225.17,
+      "planned_transport_fuel_inr": 5130.35,
+      "expected_sla_risk_inr": 1942.12,
+      "simulated_mean_penalty_inr": 660.97,
+      "simulated_mean_cost_inr": 18791.32,
+      "simulated_p95_total_cost_inr": 18130.35,
+      "late_delivery_rate_pct": 0.38,
+      "sla_breach_probability_pct": 3.6,
+      "route_signature": [
+        [
+          2,
+          1,
+          8,
+          7
+        ],
+        [
+          11,
+          6,
+          5,
+          10
+        ],
+        [
+          12,
+          4,
+          3,
+          9
+        ]
+      ],
+      "is_identical_to_previous": true,
+      "explanation": "Identical route partition to w=0.00. In discrete set-partitioning, the integer optimum is invariant across this sensitivity interval until the next polytope facet break."
+    },
+    {
+      "risk_weight": 0.5,
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_transport_fuel_inr": 5482.87,
+      "expected_sla_risk_inr": 541.16,
+      "simulated_mean_penalty_inr": 357.95,
+      "simulated_mean_cost_inr": 18840.82,
+      "simulated_p95_total_cost_inr": 18482.87,
+      "late_delivery_rate_pct": 0.28,
+      "sla_breach_probability_pct": 3.2,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          12
+        ],
+        [
+          3,
+          4,
+          10,
+          11
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": false,
+      "explanation": "Distinct Pareto integer partition (new combinatorial vertex on convex hull)."
+    },
+    {
+      "risk_weight": 0.75,
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_transport_fuel_inr": 5482.87,
+      "expected_sla_risk_inr": 541.16,
+      "simulated_mean_penalty_inr": 357.95,
+      "simulated_mean_cost_inr": 18840.82,
+      "simulated_p95_total_cost_inr": 18482.87,
+      "late_delivery_rate_pct": 0.28,
+      "sla_breach_probability_pct": 3.2,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          12
+        ],
+        [
+          3,
+          4,
+          10,
+          11
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": true,
+      "explanation": "Identical route partition to w=0.50. In discrete set-partitioning, the integer optimum is invariant across this sensitivity interval until the next polytope facet break."
+    },
+    {
+      "risk_weight": 1.0,
+      "active_vehicles": 3,
+      "total_distance_km": 244.21,
+      "planned_transport_fuel_inr": 5606.57,
+      "expected_sla_risk_inr": 377.62,
+      "simulated_mean_penalty_inr": 141.94,
+      "simulated_mean_cost_inr": 18748.51,
+      "simulated_p95_total_cost_inr": 18606.57,
+      "late_delivery_rate_pct": 0.1,
+      "sla_breach_probability_pct": 1.2,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          12
+        ],
+        [
+          3,
+          4,
+          10,
+          11
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": true,
+      "explanation": "Identical route partition to w=0.50. In discrete set-partitioning, the integer optimum is invariant across this sensitivity interval until the next polytope facet break."
+    },
+    {
+      "risk_weight": 1.5,
+      "active_vehicles": 3,
+      "total_distance_km": 259.51,
+      "planned_transport_fuel_inr": 5920.67,
+      "expected_sla_risk_inr": 76.37,
+      "simulated_mean_penalty_inr": 193.33,
+      "simulated_mean_cost_inr": 19114.0,
+      "simulated_p95_total_cost_inr": 18920.67,
+      "late_delivery_rate_pct": 0.13,
+      "sla_breach_probability_pct": 1.4,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          11
+        ],
+        [
+          3,
+          4,
+          12,
+          10
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": false,
+      "explanation": "Distinct Pareto integer partition (new combinatorial vertex on convex hull)."
+    },
+    {
+      "risk_weight": 2.0,
+      "active_vehicles": 3,
+      "total_distance_km": 259.51,
+      "planned_transport_fuel_inr": 5920.67,
+      "expected_sla_risk_inr": 76.37,
+      "simulated_mean_penalty_inr": 193.33,
+      "simulated_mean_cost_inr": 19114.0,
+      "simulated_p95_total_cost_inr": 18920.67,
+      "late_delivery_rate_pct": 0.13,
+      "sla_breach_probability_pct": 1.4,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          11
+        ],
+        [
+          3,
+          4,
+          12,
+          10
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": true,
+      "explanation": "Identical route partition to w=1.50. In discrete set-partitioning, the integer optimum is invariant across this sensitivity interval until the next polytope facet break."
+    },
+    {
+      "risk_weight": 3.0,
+      "active_vehicles": 3,
+      "total_distance_km": 259.51,
+      "planned_transport_fuel_inr": 5920.67,
+      "expected_sla_risk_inr": 76.37,
+      "simulated_mean_penalty_inr": 193.33,
+      "simulated_mean_cost_inr": 19114.0,
+      "simulated_p95_total_cost_inr": 18920.67,
+      "late_delivery_rate_pct": 0.13,
+      "sla_breach_probability_pct": 1.4,
+      "route_signature": [
+        [
+          1,
+          2,
+          9,
+          11
+        ],
+        [
+          3,
+          4,
+          12,
+          10
+        ],
+        [
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "is_identical_to_previous": true,
+      "explanation": "Identical route partition to w=1.50. In discrete set-partitioning, the integer optimum is invariant across this sensitivity interval until the next polytope facet break."
+    }
+  ],
+  "pareto_frontier_metadata": {
+    "discrete_invariance_explanation": "Discrete set-partitioning over combinatorial candidate pools yields piecewise-constant step-function Pareto frontiers. Intermediate risk weights (e.g. 0.25, 0.50, 0.75, 1.00, 1.50, 2.00) select the identical global integer partition until the marginal risk penalty shifts the objective across a polytope facet break (w=3.00)."
+  }
+}

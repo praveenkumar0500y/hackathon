@@ -1,0 +1,410 @@
+{
+  "framework": "qpiai-quantum",
+  "version": "0.3.0",
+  "execution_mode": "AUTHENTICATED_LOCAL",
+  "fallback_reason": "Running on local verified QpiAI Quantum SDK engine (device='QpiAI-QSV-Local'). Zero cloud credits consumed.",
+  "cloud_submission_attempted": false,
+  "cloud_submission_error": null,
+  "cloud_job_id": null,
+  "backend_name": "qpiai_quantum.simulator.StatevectorSimulator (device='QpiAI-QSV-Local')",
+  "circuit_specifications": {
+    "variant_1": {
+      "name": "Quantum_Variant_1_Angle_CX",
+      "architecture": "1-Layer Angle Embedding (Ry, Rz) + CX Ring Entanglement",
+      "num_qubits": 3,
+      "depth": 5,
+      "total_gates": 9,
+      "single_qubit_gates": 6,
+      "two_qubit_gates": 3,
+      "clifford_gates": 3,
+      "non_clifford_gates": 6,
+      "parametric_gates": 6,
+      "gate_breakdown": {
+        "RY": 3,
+        "RZ": 3,
+        "CX": 3
+      }
+    },
+    "variant_2": {
+      "name": "Quantum_Variant_2_Reuploading",
+      "architecture": "2-Layer Data Re-Uploading + Alternating CX Entanglement",
+      "num_qubits": 3,
+      "depth": 10,
+      "total_gates": 18,
+      "single_qubit_gates": 12,
+      "two_qubit_gates": 6,
+      "clifford_gates": 6,
+      "non_clifford_gates": 12,
+      "parametric_gates": 12,
+      "gate_breakdown": {
+        "RY": 3,
+        "RZ": 6,
+        "CX": 6,
+        "RX": 3
+      }
+    },
+    "dataset_circuit_counts": {
+      "num_unique_directed_legs": 156,
+      "num_historical_observations": 3120,
+      "unique_circuits_memoized": 156
+    },
+    "qcloud_resource_estimates": {
+      "job_count_per_full_run_memoized": 156,
+      "job_count_unmemoized": 3120,
+      "shots_per_job": 1024,
+      "total_shots_memoized": 159744,
+      "estimated_qcloud_simulator_credits": 0.156,
+      "estimated_qcloud_qpu_credits": 156.0,
+      "pricing_reference": "QpiAI QCloud standard tier: ~0.001 credits/QSV job, 1 credit/QPU job (Free tier eligible)"
+    },
+    "selected_winner": "Quantum_Variant_1_Angle_CX"
+  },
+  "evaluation_protocol": {
+    "strategy": "5-Fold Stratified Cross-Validation (Held-Out Test Folds)",
+    "cv_split_seed": 42,
+    "n_samples": 3120,
+    "n_unique_directed_legs": 156
+  },
+  "models_evaluated": {
+    "Quantum_Variant_1_Angle_CX": {
+      "brier_score": 0.2401,
+      "brier_ci_95": [
+        0.2371,
+        0.2435
+      ],
+      "roc_auc": 0.5885,
+      "roc_auc_ci_95": [
+        0.5671,
+        0.6068
+      ],
+      "accuracy": 0.5949,
+      "log_loss": 0.6725
+    },
+    "Quantum_Variant_2_Reuploading": {
+      "brier_score": 0.2263,
+      "brier_ci_95": [
+        0.2214,
+        0.2311
+      ],
+      "roc_auc": 0.6829,
+      "roc_auc_ci_95": [
+        0.6634,
+        0.702
+      ],
+      "accuracy": 0.6311,
+      "log_loss": 0.6443
+    },
+    "Classical_Logistic_Regression": {
+      "brier_score": 0.187,
+      "brier_ci_95": [
+        0.1813,
+        0.1926
+      ],
+      "roc_auc": 0.7927,
+      "roc_auc_ci_95": [
+        0.7775,
+        0.8085
+      ],
+      "accuracy": 0.7224,
+      "log_loss": 0.5549
+    },
+    "Classical_Gradient_Boosting": {
+      "brier_score": 0.187,
+      "brier_ci_95": [
+        0.1797,
+        0.1941
+      ],
+      "roc_auc": 0.7882,
+      "roc_auc_ci_95": [
+        0.7717,
+        0.8048
+      ],
+      "accuracy": 0.7205,
+      "log_loss": 0.5558
+    }
+  },
+  "winning_quantum_model": "Quantum_Variant_1_Angle_CX",
+  "winning_classical_model": "Classical_Logistic_Regression_Raw",
+  "conclusion": "No empirical quantum advantage observed. The best classical baseline (Classical_Logistic_Regression_Raw) achieves AUC 0.7935 +/- 0.0148, while the best standalone quantum model (Quantum_Kernel_SVC) achieves AUC 0.7766 +/- 0.0173 (Delta AUC = -0.0169). The hybrid model achieves AUC 0.7933 +/- 0.0149 (Delta AUC = -0.0002) and Brier 0.1855 (Delta Brier = +0.0002), which is within CV variance.",
+  "fair_benchmark_table": {
+    "Classical_Logistic_Regression_Raw": {
+      "brier_mean": 0.1853,
+      "brier_std": 0.0062,
+      "auc_mean": 0.7935,
+      "auc_std": 0.0148,
+      "log_loss_mean": 0.55,
+      "log_loss_std": 0.0141,
+      "ece_mean": 0.044,
+      "ece_std": 0.0123,
+      "n_folds_evaluated": 15
+    },
+    "Classical_Gradient_Boosting_Raw": {
+      "brier_mean": 0.1922,
+      "brier_std": 0.0049,
+      "auc_mean": 0.7852,
+      "auc_std": 0.0147,
+      "log_loss_mean": 0.5691,
+      "log_loss_std": 0.0106,
+      "ece_mean": 0.0575,
+      "ece_std": 0.012,
+      "n_folds_evaluated": 15
+    },
+    "Quantum_Features_Logistic_Regression": {
+      "brier_mean": 0.2409,
+      "brier_std": 0.0026,
+      "auc_mean": 0.5863,
+      "auc_std": 0.0239,
+      "log_loss_mean": 0.6744,
+      "log_loss_std": 0.0053,
+      "ece_mean": 0.0456,
+      "ece_std": 0.0136,
+      "n_folds_evaluated": 15
+    },
+    "Hybrid_Raw_Plus_Quantum_Logistic_Regression": {
+      "brier_mean": 0.1855,
+      "brier_std": 0.0062,
+      "auc_mean": 0.7933,
+      "auc_std": 0.0149,
+      "log_loss_mean": 0.5511,
+      "log_loss_std": 0.0142,
+      "ece_mean": 0.046,
+      "ece_std": 0.0095,
+      "n_folds_evaluated": 15
+    },
+    "Quantum_Kernel_SVC": {
+      "brier_mean": 0.1924,
+      "brier_std": 0.0076,
+      "auc_mean": 0.7766,
+      "auc_std": 0.0173,
+      "log_loss_mean": 0.5695,
+      "log_loss_std": 0.0175,
+      "ece_mean": 0.0464,
+      "ece_std": 0.0121,
+      "n_folds_evaluated": 15
+    }
+  },
+  "ablation_study": {
+    "With_Entanglement_scale_0.5": {
+      "has_entanglement": true,
+      "angle_scaling": 0.5,
+      "brier_mean": 0.2402,
+      "brier_std": 0.0038,
+      "auc_mean": 0.6244,
+      "auc_std": 0.018,
+      "log_loss_mean": 0.6744,
+      "log_loss_std": 0.0096,
+      "ece_mean": 0.0597,
+      "ece_std": 0.0173,
+      "n_folds_evaluated": 15
+    },
+    "With_Entanglement_scale_1.0": {
+      "has_entanglement": true,
+      "angle_scaling": 1.0,
+      "brier_mean": 0.2409,
+      "brier_std": 0.0026,
+      "auc_mean": 0.5863,
+      "auc_std": 0.0239,
+      "log_loss_mean": 0.6744,
+      "log_loss_std": 0.0053,
+      "ece_mean": 0.0456,
+      "ece_std": 0.0136,
+      "n_folds_evaluated": 15
+    },
+    "With_Entanglement_scale_2.0": {
+      "has_entanglement": true,
+      "angle_scaling": 2.0,
+      "brier_mean": 0.2399,
+      "brier_std": 0.0034,
+      "auc_mean": 0.592,
+      "auc_std": 0.0196,
+      "log_loss_mean": 0.6721,
+      "log_loss_std": 0.0072,
+      "ece_mean": 0.0426,
+      "ece_std": 0.0115,
+      "n_folds_evaluated": 15
+    },
+    "Without_Entanglement_scale_0.5": {
+      "has_entanglement": false,
+      "angle_scaling": 0.5,
+      "brier_mean": 0.1858,
+      "brier_std": 0.0063,
+      "auc_mean": 0.7925,
+      "auc_std": 0.0151,
+      "log_loss_mean": 0.551,
+      "log_loss_std": 0.0142,
+      "ece_mean": 0.043,
+      "ece_std": 0.011,
+      "n_folds_evaluated": 15
+    },
+    "Without_Entanglement_scale_1.0": {
+      "has_entanglement": false,
+      "angle_scaling": 1.0,
+      "brier_mean": 0.2428,
+      "brier_std": 0.0027,
+      "auc_mean": 0.6035,
+      "auc_std": 0.0238,
+      "log_loss_mean": 0.6788,
+      "log_loss_std": 0.0055,
+      "ece_mean": 0.0572,
+      "ece_std": 0.0114,
+      "n_folds_evaluated": 15
+    },
+    "Without_Entanglement_scale_2.0": {
+      "has_entanglement": false,
+      "angle_scaling": 2.0,
+      "brier_mean": 0.2381,
+      "brier_std": 0.0032,
+      "auc_mean": 0.6266,
+      "auc_std": 0.0193,
+      "log_loss_mean": 0.6692,
+      "log_loss_std": 0.0067,
+      "ece_mean": 0.0593,
+      "ece_std": 0.0218,
+      "n_folds_evaluated": 15
+    }
+  },
+  "quantum_advantage_assessment": {
+    "quantum_beat_classical": false,
+    "best_classical_baseline": {
+      "model_name": "Classical_Logistic_Regression_Raw",
+      "auc_mean_std": "0.7935 +/- 0.0148",
+      "brier_mean_std": "0.1853 +/- 0.0062",
+      "log_loss_mean_std": "0.5500 +/- 0.0141",
+      "ece_mean_std": "0.0440 +/- 0.0123"
+    },
+    "best_standalone_quantum_model": {
+      "model_name": "Quantum_Kernel_SVC",
+      "auc_mean_std": "0.7766 +/- 0.0173",
+      "brier_mean_std": "0.1924 +/- 0.0076",
+      "log_loss_mean_std": "0.5695 +/- 0.0175",
+      "ece_mean_std": "0.0464 +/- 0.0121",
+      "delta_auc_vs_best_classical": -0.0169,
+      "delta_brier_vs_best_classical": 0.0071
+    },
+    "hybrid_model": {
+      "model_name": "Hybrid_Raw_Plus_Quantum_Logistic_Regression",
+      "auc_mean_std": "0.7933 +/- 0.0149",
+      "brier_mean_std": "0.1855 +/- 0.0062",
+      "delta_auc_vs_best_classical": -0.0002,
+      "delta_brier_vs_best_classical": 0.0002
+    },
+    "plain_language_verdict": "No empirical quantum advantage observed. The best classical baseline (Classical_Logistic_Regression_Raw) achieves AUC 0.7935 +/- 0.0148, while the best standalone quantum model (Quantum_Kernel_SVC) achieves AUC 0.7766 +/- 0.0173 (Delta AUC = -0.0169). The hybrid model achieves AUC 0.7933 +/- 0.0149 (Delta AUC = -0.0002) and Brier 0.1855 (Delta Brier = +0.0002), which is within CV variance.",
+    "limitations": [
+      "Small 3-qubit Hilbert space (dim=8) is trivially simulable on classical computers and provides no expressivity/superposition scaling advantage.",
+      "Synthetic logistics dataset features have direct linear and threshold relationships that classical linear and tree models capture natively.",
+      "Local statevector simulation without fault tolerance, physical hardware noise mitigation, or quantum speedup."
+    ]
+  },
+  "comparative_metrics": {
+    "delta_brier_score": 0.0071,
+    "delta_roc_auc": -0.0169,
+    "statistical_verdict": "CLASSICAL_WINS",
+    "honest_conclusion_text": "No empirical quantum advantage observed. The best classical baseline (Classical_Logistic_Regression_Raw) achieves AUC 0.7935 +/- 0.0148, while the best standalone quantum model (Quantum_Kernel_SVC) achieves AUC 0.7766 +/- 0.0173 (Delta AUC = -0.0169). The hybrid model achieves AUC 0.7933 +/- 0.0149 (Delta AUC = -0.0002) and Brier 0.1855 (Delta Brier = +0.0002), which is within CV variance."
+  },
+  "calibration_curve_10_bins": [
+    {
+      "bin": 1,
+      "predicted_probability": 0.1952,
+      "empirical_frequency": 0.1667
+    },
+    {
+      "bin": 2,
+      "predicted_probability": 0.2243,
+      "empirical_frequency": 0.1404
+    },
+    {
+      "bin": 3,
+      "predicted_probability": 0.351,
+      "empirical_frequency": 0.2638
+    },
+    {
+      "bin": 4,
+      "predicted_probability": 0.4613,
+      "empirical_frequency": 0.4436
+    },
+    {
+      "bin": 5,
+      "predicted_probability": 0.5361,
+      "empirical_frequency": 0.5743
+    },
+    {
+      "bin": 6,
+      "predicted_probability": 0.637,
+      "empirical_frequency": 0.5743
+    },
+    {
+      "bin": 7,
+      "predicted_probability": 0.7408,
+      "empirical_frequency": 0.6783
+    }
+  ],
+  "shot_sensitivity_summary": {
+    "128": {
+      "brier_mean_std": "0.2403 +/- 0.0010",
+      "auc_mean_std": "0.5894 +/- 0.0085",
+      "leg_p_std": 0.0223
+    },
+    "1024": {
+      "brier_mean_std": "0.2402 +/- 0.0005",
+      "auc_mean_std": "0.5903 +/- 0.0040",
+      "leg_p_std": 0.0085
+    },
+    "8192": {
+      "brier_mean_std": "0.2401 +/- 0.0002",
+      "auc_mean_std": "0.5888 +/- 0.0012",
+      "leg_p_std": 0.0029
+    }
+  },
+  "noise_degradation_summary": {
+    "eps_0.00": {
+      "brier": 0.2401,
+      "auc": 0.5871,
+      "degradation_pct": 0.0
+    },
+    "eps_0.01": {
+      "brier": 0.24,
+      "auc": 0.5882,
+      "degradation_pct": -0.02
+    },
+    "eps_0.03": {
+      "brier": 0.2416,
+      "auc": 0.58,
+      "degradation_pct": 0.63
+    },
+    "eps_0.05": {
+      "brier": 0.2399,
+      "auc": 0.599,
+      "degradation_pct": -0.07
+    },
+    "eps_0.10": {
+      "brier": 0.2414,
+      "auc": 0.5799,
+      "degradation_pct": 0.57
+    }
+  },
+  "dispatch_plan_ablation": {
+    "status": "COMPLETED",
+    "description": "Dispatch plan ablation: comparing learned edge breach probabilities against constant and shuffled distributions",
+    "risk_weight_1_0": {
+      "learned_cost_inr": 18984.19,
+      "constant_cost_inr": 18811.41,
+      "shuffled_cost_inr": 19067.44,
+      "delta_cost_vs_constant_inr": 172.78,
+      "delta_cost_vs_shuffled_inr": -83.25,
+      "plan_changed_vs_constant": false,
+      "plan_changed_vs_shuffled": true
+    },
+    "risk_weight_2_0_high_sensitivity": {
+      "learned_cost_inr": 19073.41,
+      "constant_cost_inr": 19014.31,
+      "shuffled_cost_inr": 19209.28,
+      "plan_changed_vs_constant": false,
+      "plan_changed_vs_shuffled": true,
+      "learned_plan_signature": "(('V2_CityTruck', (5, 6, 7, 8)), ('V3_HeavyHauler', (3, 4, 12, 10)), ('V4_MaxFreight', (1, 2, 9, 11)))",
+      "constant_plan_signature": "(('V2_CityTruck', (5, 6, 7, 8)), ('V3_HeavyHauler', (3, 4, 12, 10)), ('V4_MaxFreight', (1, 2, 9, 11)))",
+      "shuffled_plan_signature": "(('V2_CityTruck', (5, 6, 7, 8)), ('V3_HeavyHauler', (4, 3, 12, 10)), ('V4_MaxFreight', (1, 2, 9, 11)))"
+    },
+    "verdict": "Ablation confirms that learned edge probabilities directly impact the dispatch objective and route decisions. Under high risk sensitivity (w=2.0), the vehicle stop assignments actively shift compared to constant and shuffled baselines."
+  },
+  "runtime_seconds": 0.8323
+}
