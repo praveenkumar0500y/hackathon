@@ -263,7 +263,14 @@ def run_fleet_dispatch(
     is_feasible = (coverage_count == 12 and len(all_assigned_stops) == 12)
 
     # 4-Plan Baseline Benchmarks
-    baselines = run_all_baselines()
+    if os.getenv("VERCEL"):
+        try:
+            cached = get_cached_run()
+            baselines = cached.get("baselines_summary") or run_all_baselines()
+        except Exception:
+            baselines = run_all_baselines()
+    else:
+        baselines = run_all_baselines()
 
     # Flat plan rows for CSV export
     plan_rows = []
