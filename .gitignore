@@ -22,3 +22,5 @@ scratch_test_clean.js
 .DS_Store
 Thumbs.db
 
+
+.vercel
